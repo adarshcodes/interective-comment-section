@@ -21,38 +21,4 @@ body {
 .para-font {
   font-size: 1.6rem;
 }
-
-.attribution {
-  margin-top: 10rem;
-  color: #8bacda;
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-.attribution i {
-  color: rgba(255, 7, 58, 0.7);
-  margin: 0 0.5rem;
-  animation: infinite heartPounding ease-in-out 1s;
-}
-
-.attribution a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 600;
-  margin-left: 0.5rem;
-  transition: all 0.3s;
-}
-
-.attribution a:hover {
-  color: #00fff7;
-}
-
-@keyframes heartPounding {
-  25% {
-    transform: scale(1.2);
-  }
-  75% {
-    transform: scale(0.8);
-  }
-}
 /*# sourceMappingURL=main.css.map */
