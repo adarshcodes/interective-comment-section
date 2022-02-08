@@ -1,10 +1,13 @@
 import React from "react";
 import "./assets/sass/main.css";
+import Comment from "./components/Comment";
 
 function App() {
 	return (
 		<div className="App">
-			<main className="app">This is the Testing version of the site.</main>
+			<main className="app">
+				<Comment />
+			</main>
 		</div>
 	);
 }
