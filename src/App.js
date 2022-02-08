@@ -1,10 +1,10 @@
 import React from "react";
-import "./Assets/sass/main.css";
+import "./assets/sass/main.css";
 
 function App() {
 	return (
 		<div className="App">
-			<header className="app">This is the Testing version of the site.</header>
+			<main className="app">This is the Testing version of the site.</main>
 		</div>
 	);
 }

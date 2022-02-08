@@ -21,4 +21,10 @@ body {
 .para-font {
   font-size: 1.6rem;
 }
+
+.app {
+  width: 100%;
+  height: 100vh;
+  background-color: #f5f6fa;
+}
 /*# sourceMappingURL=main.css.map */
