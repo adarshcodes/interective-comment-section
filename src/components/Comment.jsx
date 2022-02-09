@@ -3,6 +3,7 @@ import React from "react";
 
 // other component import
 import VoteCounter from "./VoteCounter";
+import UserData from "../userData";
 
 // image import
 import ReplyIcon from "../assets/images/icon-reply.svg";

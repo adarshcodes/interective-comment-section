@@ -10,13 +10,11 @@
 
 .comment {
 	padding: 2.4rem;
+	margin-bottom: 2rem;
 	width: 73rem;
 	border-radius: 0.8rem;
 	background-color: $white;
 	@include flex-row;
-
-	&--user-details {
-	}
 
 	&--user-info {
 		@include flex-row;

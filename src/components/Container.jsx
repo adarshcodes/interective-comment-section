@@ -8,6 +8,7 @@ function Container() {
 	return (
 		<div className="container">
 			<Comment />
+			<Comment />
 		</div>
 	);
 }
