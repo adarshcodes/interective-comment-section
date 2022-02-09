@@ -1,12 +1,12 @@
 import React from "react";
 import "./assets/sass/main.css";
-import Comment from "./components/Comment";
+import Container from "./components/Container";
 
 function App() {
 	return (
 		<div className="App">
 			<main className="app">
-				<Comment />
+				<Container />
 			</main>
 		</div>
 	);
