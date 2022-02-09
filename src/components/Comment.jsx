@@ -26,23 +26,15 @@ function Comment() {
 			<VoteCounter incre={upvote} decre={downvote} count={vote} />
 
 			<div className="comment--user-details">
-				<div className="comment--user-details__user-info">
-					<div className="comment--user-details__user-info__data">
-						<img
-							src={Avatar}
-							alt="user-avatar"
-							className="comment--user-details__user-infodata____avatar"
-						/>
+				<div className="comment--user-info">
+					<div className="comment--data">
+						<img src={Avatar} alt="user-avatar" className="avatar" />
 
-						<h3 className="comment--user-details__user-info__data__username">
-							amyrobson
-						</h3>
+						<h3 className="username">amyrobson</h3>
 
-						<p className="comment--user-details__user-info__data__timestamp">
-							1 month ago
-						</p>
+						<p className="timestamp">1 month ago</p>
 					</div>
-					<div className="comment--user-details__user-info__reply">
+					<div className="comment--reply">
 						<img src={ReplyIcon} alt="reply" className="reply-icon" />
 						Reply
 					</div>

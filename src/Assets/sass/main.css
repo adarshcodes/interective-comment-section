@@ -42,8 +42,60 @@ body {
   flex-direction: row;
 }
 
+.comment--user-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.comment--data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.comment--data .avatar {
+  width: 3.2rem;
+  margin-right: 1.6rem;
+}
+
+.comment--data .username {
+  margin-right: 1.6rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #324152;
+}
+
+.comment--data .timestamp {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #67727e;
+}
+
+.comment--reply {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #5457b6;
+}
+
+.comment--reply img {
+  width: 1.4rem;
+  margin-right: 0.8rem;
+}
+
+.comment--comment-text {
+  margin-top: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #67727e;
+}
+
 .vote-counter {
-  box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
