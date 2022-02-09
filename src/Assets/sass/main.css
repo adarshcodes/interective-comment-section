@@ -32,4 +32,56 @@ body {
   align-items: flex-start;
   padding: 6.4rem;
 }
+
+.comment {
+  padding: 2.4rem;
+  width: 73rem;
+  border-radius: 0.8rem;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+}
+
+.vote-counter {
+  box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f6fa;
+  border-radius: 1rem;
+  width: 4rem;
+  height: 10rem;
+  padding: 1rem 1.5rem;
+  margin-right: 2.4rem;
+}
+
+.vote-counter__vote-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.vote-counter__vote-icon img {
+  width: 1rem;
+}
+
+.vote-counter__vote-icon:hover {
+  box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6), -2px -2px 4px rgba(255, 255, 255, 0.4), 2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vote-counter__vote-icon:active {
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7), inset -2px -2px 4px rgba(255, 255, 255, 0.5), inset 2px 2px 2px rgba(255, 255, 255, 0.075), inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.vote-counter__vote-count {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #5457b6;
+}
 /*# sourceMappingURL=main.css.map */

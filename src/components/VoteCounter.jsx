@@ -6,11 +6,18 @@ import React from "react";
 import Plus from "../assets/images/icon-plus.svg";
 import Minus from "../assets/images/icon-minus.svg";
 
-function VoteCounter() {
+function VoteCounter(props) {
 	return (
 		<div className="vote-counter">
-			<img src={Plus} alt="upvote" className="vote-counter__votes-icon" />
-			<img src={Minus} alt="downvote" className="vote-counter__votes-icon" />
+			<div className="vote-counter__vote-icon" onClick={props.incre}>
+				<img src={Plus} alt="upvote" />
+			</div>
+
+			<p className="vote-counter__vote-count">{props.count}</p>
+
+			<div className="vote-counter__vote-icon" onClick={props.decre}>
+				<img src={Minus} alt="downvote" />
+			</div>
 		</div>
 	);
 }

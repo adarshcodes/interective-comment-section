@@ -9,9 +9,22 @@ import ReplyIcon from "../assets/images/icon-reply.svg";
 import Avatar from "../assets/images/avatars/image-amyrobson.webp";
 
 function Comment() {
+	const [vote, setVote] = React.useState(0);
+
+	function upvote() {
+		setVote((prevCount) => prevCount + 1);
+		console.log("It's working");
+	}
+
+	function downvote() {
+		setVote((prevCount) => prevCount - 1);
+		console.log("It's working");
+	}
+
 	return (
 		<div className="comment">
-			<VoteCounter />
+			<VoteCounter incre={upvote} decre={downvote} count={vote} />
+
 			<div className="comment--user-details">
 				<div className="comment--user-details__user-info">
 					<div className="comment--user-details__user-info__data">

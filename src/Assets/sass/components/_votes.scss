@@ -1,0 +1,39 @@
+.vote-counter {
+	@include neuShadow-1;
+	@include flex-column;
+	justify-content: space-between;
+	align-items: center;
+	background-color: $very-light-gray;
+	border-radius: 1rem;
+	width: 4rem;
+	height: 10rem;
+	padding: 1rem 1.5rem;
+	margin-right: 2.4rem;
+
+	&__vote-icon {
+		@include flex-row-center;
+		width: 2rem;
+		height: 2rem;
+		cursor: pointer;
+		border-radius: 50%;
+		transition: all 0.3s;
+
+		img {
+			width: 1rem;
+		}
+
+		&:hover {
+			@include neuHover;
+		}
+
+		&:active {
+			@include neuActive;
+		}
+	}
+
+	&__vote-count {
+		font-size: 1.6rem;
+		font-weight: 700;
+		color: $moderate-blue;
+	}
+}

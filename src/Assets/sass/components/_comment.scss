@@ -7,3 +7,11 @@
 	align-items: flex-start;
 	padding: 6.4rem;
 }
+
+.comment {
+	padding: 2.4rem;
+	width: 73rem;
+	border-radius: 0.8rem;
+	background-color: $white;
+	@include flex-row;
+}
