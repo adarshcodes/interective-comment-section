@@ -8,7 +8,6 @@ import VoteCounter from "./VoteCounter";
 import ReplyIcon from "../assets/images/icon-reply.svg";
 
 function Comment(props) {
-<<<<<<< HEAD
 	const [vote, setVote] = React.useState(props.upvote);
 
 	function increVote() {
@@ -17,20 +16,7 @@ function Comment(props) {
 
 	function decreVote() {
 		setVote((prevVote) => prevVote - 1);
-=======
-	const [vote, setVote] = React.useState(0);
-
-	function upvote() {
-		setVote((prevCount) => prevCount + 1);
 	}
-
-	function downvote() {
-		setVote((prevCount) => prevCount - 1);
->>>>>>> fcf4d9cb9c57aa9a53dd2141b2a311abc675beae
-	}
-	console.log(vote);
-
-	console.log(props.avatar);
 
 	return (
 		<div className="comment">
