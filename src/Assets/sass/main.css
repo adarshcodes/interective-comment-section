@@ -39,6 +39,15 @@ body {
   align-items: flex-end;
 }
 
+.replies-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 68.5rem;
+  border-left: 0.2rem solid #eaecf1;
+}
+
 .comment {
   padding: 2.4rem;
   margin-bottom: 2rem;

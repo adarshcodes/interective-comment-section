@@ -23,18 +23,20 @@ function Container() {
 					upvote={comment.score}
 				/>
 
-				{haveReply.length > 0
-					? haveReply.map((replies) => (
-							<Replies
-								key="id"
-								avatar={replies.user.image.webp}
-								username={replies.user.username}
-								timestamp={replies.createdAt}
-								text={replies.content}
-								upvote={replies.score}
-							/>
-					  ))
-					: null}
+				<div className="replies-holder">
+					{haveReply.length > 0
+						? haveReply.map((replies) => (
+								<Replies
+									key="id"
+									avatar={replies.user.image.webp}
+									username={replies.user.username}
+									timestamp={replies.createdAt}
+									text={replies.content}
+									upvote={replies.score}
+								/>
+						  ))
+						: null}
+				</div>
 			</div>
 		);
 	});

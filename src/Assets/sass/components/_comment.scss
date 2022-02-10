@@ -13,6 +13,14 @@
 	align-items: flex-end;
 }
 
+.replies-holder {
+	@include flex-column;
+	justify-content: flex-end;
+	align-items: flex-end;
+	width: 68.5rem;
+	border-left: 0.2rem solid $light-gray;
+}
+
 .comment {
 	padding: 2.4rem;
 	margin-bottom: 2rem;
