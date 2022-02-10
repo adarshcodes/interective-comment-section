@@ -15,7 +15,10 @@ function Container() {
 			username={comment.user.username}
 			timestamp={comment.createdAt}
 			text={comment.content}
+<<<<<<< HEAD
 			upvote={comment.score}
+=======
+>>>>>>> fcf4d9cb9c57aa9a53dd2141b2a311abc675beae
 		/>
 	));
 

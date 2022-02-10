@@ -71,6 +71,7 @@ const userData = {
 						},
 						username: "juliusomo",
 					},
+<<<<<<< HEAD
 				},
 			],
 		},
@@ -78,3 +79,10 @@ const userData = {
 };
 
 export default userData;
+=======
+				],
+			},
+		],
+	},
+];
+>>>>>>> fcf4d9cb9c57aa9a53dd2141b2a311abc675beae
