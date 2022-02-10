@@ -110,6 +110,7 @@ body {
 }
 
 .vote-counter__vote-icon {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
