@@ -92,8 +92,56 @@
 }
 
 .new-comment {
+	@include flex-row;
+	align-items: flex-start;
 	padding: 2.8rem 2.4rem;
 	width: 73rem;
 	border-radius: 0.8rem;
 	background-color: $white;
+
+	&__avatar {
+		width: 4rem;
+		margin-right: 1.6rem;
+	}
+
+	&__add-comment {
+		width: 50.6rem;
+		height: 9.6rem;
+		border-radius: 0.8rem;
+		border: 0.1rem solid $light-gray;
+		resize: none;
+		outline: none;
+		transition: all 0.2s;
+		padding: 1.2rem 2.4rem;
+		font-size: 1.6rem;
+		color: $grayish-blue;
+
+		&:focus {
+			border: 0.1rem solid $moderate-blue;
+			box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+		}
+	}
+
+	&__btn-comment {
+		width: 10.4rem;
+		height: 4.8rem;
+		font-size: 1.6rem;
+		font-weight: 600;
+		color: $white;
+		background-color: $moderate-blue;
+		border-radius: 0.8rem;
+		text-transform: uppercase;
+		@include flex-row-center;
+		cursor: pointer;
+		transition: all 0.2s;
+		margin-left: 1.6rem;
+
+		&:hover {
+			@include neuHover;
+		}
+
+		&:active {
+			transform: scale(0.9);
+		}
+	}
 }
