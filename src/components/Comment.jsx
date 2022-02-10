@@ -3,37 +3,34 @@ import React from "react";
 
 // other component import
 import VoteCounter from "./VoteCounter";
-import UserData from "../userData";
 
 // image import
 import ReplyIcon from "../assets/images/icon-reply.svg";
-import Avatar from "../assets/images/avatars/image-amyrobson.webp";
 
-function Comment() {
-	const [vote, setVote] = React.useState(0);
+function Comment(props) {
+	const [vote, setVote] = React.useState(props.upvote);
 
-	function upvote() {
-		setVote((prevCount) => prevCount + 1);
-		console.log("It's working");
+	function increVote() {
+		setVote((prevVote) => prevVote + 1);
 	}
 
-	function downvote() {
-		setVote((prevCount) => prevCount - 1);
-		console.log("It's working");
+	function decreVote() {
+		setVote((prevVote) => prevVote - 1);
 	}
+	console.log(vote);
 
 	return (
 		<div className="comment">
-			<VoteCounter incre={upvote} decre={downvote} count={vote} />
+			<VoteCounter incre={increVote} decre={decreVote} count={vote} />
 
 			<div className="comment--user-details">
 				<div className="comment--user-info">
 					<div className="comment--data">
-						<img src={Avatar} alt="user-avatar" className="avatar" />
+						<img src={props.avatar} alt="user-avatar" className="avatar" />
 
-						<h3 className="username">amyrobson</h3>
+						<h3 className="username">{props.username}</h3>
 
-						<p className="timestamp">1 month ago</p>
+						<p className="timestamp">{props.timestamp}</p>
 					</div>
 					<div className="comment--reply">
 						<img src={ReplyIcon} alt="reply" className="reply-icon" />
@@ -41,11 +38,7 @@ function Comment() {
 					</div>
 				</div>
 
-				<p className="comment--comment-text">
-					Impressive! Though it seems the drag feature could be improved. But
-					overall it looks incredible. You’ve nailed the design and the
-					responsiveness at various breakpoints works really well.
-				</p>
+				<p className="comment--comment-text">{props.text}</p>
 			</div>
 		</div>
 	);
