@@ -4,6 +4,7 @@ import React from "react";
 // Component import
 import Comment from "./Comment";
 import Replies from "./Replies";
+import NewComment from "./NewComment";
 import UserData from "../userData";
 
 function Container() {
@@ -41,7 +42,12 @@ function Container() {
 		);
 	});
 
-	return <div className="container">{comments}</div>;
+	return (
+		<div className="container">
+			{comments}
+			<NewComment />
+		</div>
+	);
 }
 
 export default Container;

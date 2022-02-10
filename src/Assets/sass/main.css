@@ -89,6 +89,8 @@ body {
 }
 
 .comment--reply {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -96,11 +98,17 @@ body {
   font-size: 1.6rem;
   font-weight: 700;
   color: #5457b6;
+  transition: all 0.2s;
 }
 
 .comment--reply img {
   width: 1.4rem;
   margin-right: 0.8rem;
+}
+
+.comment--reply:active {
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7), inset -2px -2px 4px rgba(255, 255, 255, 0.5), inset 2px 2px 2px rgba(255, 255, 255, 0.075), inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+  transform: scale(0.9);
 }
 
 .comment--comment-text {
@@ -112,6 +120,13 @@ body {
 
 .replies {
   width: 64.2rem;
+}
+
+.new-comment {
+  padding: 2.8rem 2.4rem;
+  width: 73rem;
+  border-radius: 0.8rem;
+  background-color: #ffffff;
 }
 
 .vote-counter {
@@ -150,6 +165,7 @@ body {
 
 .vote-counter__vote-icon:active {
   box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7), inset -2px -2px 4px rgba(255, 255, 255, 0.5), inset 2px 2px 2px rgba(255, 255, 255, 0.075), inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+  transform: scale(0.8);
 }
 
 .vote-counter__vote-count {
