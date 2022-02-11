@@ -35,10 +35,12 @@ function Replies(props) {
 						<p className="timestamp">{props.timestamp}</p>
 					</div>
 
-					<div className="comment--reply">
-						<img src={ReplyIcon} alt="reply" className="reply-icon" />
-						Reply
-					</div>
+					{props.username === props.superuser ? null : (
+						<div className="comment--reply">
+							<img src={ReplyIcon} alt="reply" className="reply-icon" />
+							Reply
+						</div>
+					)}
 				</div>
 
 				<p className="comment--comment-text">{props.text}</p>
