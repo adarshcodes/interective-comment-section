@@ -8,6 +8,8 @@ import NewComment from "./NewComment";
 import UserData from "../userData";
 
 function Container() {
+	const [newComment] = React.useState(UserData.currentUser);
+
 	const [commentsData] = React.useState(UserData.comments);
 
 	const comments = commentsData.map((comment) => {
@@ -22,6 +24,7 @@ function Container() {
 					timestamp={comment.createdAt}
 					text={comment.content}
 					upvote={comment.score}
+					superuser={newComment.username}
 				/>
 
 				<div className="replies-holder">
@@ -34,6 +37,7 @@ function Container() {
 									timestamp={replies.createdAt}
 									text={replies.content}
 									upvote={replies.score}
+									superuser={newComment.username}
 								/>
 						  ))
 						: null}
@@ -45,7 +49,10 @@ function Container() {
 	return (
 		<div className="container">
 			{comments}
-			<NewComment />
+			<NewComment
+				superuser={newComment.username}
+				avatar={newComment.image.webp}
+			/>
 		</div>
 	);
 }

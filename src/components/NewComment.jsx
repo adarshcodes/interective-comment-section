@@ -2,13 +2,12 @@
 import React from "react";
 
 // image import
-import currentUser from "../assets/images/avatars/image-juliusomo.webp";
 
-function NewComment() {
+function NewComment(props) {
 	return (
 		<div className="new-comment">
 			<img
-				src={currentUser}
+				src={props.avatar}
 				alt="user-avatar"
 				className="new-comment__avatar"
 			/>

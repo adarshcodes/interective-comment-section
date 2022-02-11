@@ -27,10 +27,14 @@ function Comment(props) {
 					<div className="comment--data">
 						<img src={props.avatar} alt="user-avatar" className="avatar" />
 
-						<h3 className="username">{props.username}</h3>
+						<h3 className="username">
+							{props.username}
+							{props.username === props.superuser ? <span>you</span> : null}
+						</h3>
 
 						<p className="timestamp">{props.timestamp}</p>
 					</div>
+
 					<div className="comment--reply">
 						<img src={ReplyIcon} alt="reply" className="reply-icon" />
 						Reply
