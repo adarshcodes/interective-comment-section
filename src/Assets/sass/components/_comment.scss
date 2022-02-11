@@ -97,6 +97,44 @@
 		font-weight: 400;
 		color: $grayish-blue;
 	}
+
+	&--update {
+		font-size: 1.6rem;
+		font-weight: 500;
+		@include flex-row;
+		align-items: center;
+
+		&__delete {
+			margin-right: 2.4rem;
+			color: $soft-red;
+			@include flex-row;
+			align-items: center;
+
+			&:hover {
+				cursor: pointer;
+				color: $pale-red;
+			}
+
+			i {
+				margin-right: 0.833rem;
+			}
+		}
+
+		&__edit {
+			color: $moderate-blue;
+			@include flex-row;
+			align-items: center;
+
+			&:hover {
+				cursor: pointer;
+				color: $light-grayish-blue;
+			}
+
+			i {
+				margin-right: 0.833rem;
+			}
+		}
+	}
 }
 
 .replies {
