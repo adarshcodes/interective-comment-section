@@ -130,6 +130,47 @@ body {
   color: #67727e;
 }
 
+.comment--update {
+  font-size: 1.6rem;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.comment--update__delete {
+  margin-right: 2.4rem;
+  color: #ed6468;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.comment--update__delete:hover {
+  cursor: pointer;
+  color: #ffb8bb;
+}
+
+.comment--update__delete i {
+  margin-right: 0.833rem;
+}
+
+.comment--update__edit {
+  color: #5457b6;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.comment--update__edit:hover {
+  cursor: pointer;
+  color: #c3c4ef;
+}
+
+.comment--update__edit i {
+  margin-right: 0.833rem;
+}
+
 .replies {
   width: 64.2rem;
 }
