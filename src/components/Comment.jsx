@@ -35,7 +35,18 @@ function Comment(props) {
 						<p className="timestamp">{props.timestamp}</p>
 					</div>
 
-					{props.username === props.superuser ? null : (
+					{props.username === props.superuser ? (
+						<div className="comment--update">
+							<div className="comment--update__delete">
+								<i class="fa-solid fa-trash"></i>
+								Delete
+							</div>
+							<div className="comment--update__edit">
+								<i class="fa-solid fa-pen"></i>
+								Edit
+							</div>
+						</div>
+					) : (
 						<div className="comment--reply">
 							<img src={ReplyIcon} alt="reply" className="reply-icon" />
 							Reply
