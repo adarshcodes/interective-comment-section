@@ -1,5 +1,6 @@
 // Native import
 import React from "react";
+// import moment from "moment";
 
 // Component import
 import Comment from "./Comment";
@@ -8,7 +9,9 @@ import NewComment from "./NewComment";
 import UserData from "../userData";
 
 function Container() {
-	const [newComment] = React.useState(UserData.currentUser);
+	// Working on data fetch
+
+	const [currentUser] = React.useState(UserData.currentUser);
 
 	const [commentsData] = React.useState(UserData.comments);
 
@@ -24,7 +27,7 @@ function Container() {
 					timestamp={comment.createdAt}
 					text={comment.content}
 					upvote={comment.score}
-					superuser={newComment.username}
+					superuser={currentUser.username}
 				/>
 
 				<div className="replies-holder">
@@ -37,7 +40,7 @@ function Container() {
 									timestamp={replies.createdAt}
 									text={replies.content}
 									upvote={replies.score}
-									superuser={newComment.username}
+									superuser={currentUser.username}
 								/>
 						  ))
 						: null}
@@ -46,12 +49,51 @@ function Container() {
 		);
 	});
 
+	// console.log(moment(date, "YYYYMMDD").fromNow());
+
+	// Adding new comment
+
+	const length = commentsData.length + 1;
+
+	const [newComment, setNewComment] = React.useState({
+		id: length,
+		content: "",
+		createdAt: "",
+		score: 0,
+		user: {
+			image: {
+				png: "",
+				webp: currentUser.image.webp,
+			},
+			username: currentUser.username,
+		},
+	});
+
+	function addComment() {
+		// setCommentsData((prevComm) => {
+		// 	return (prevComm[length] = newComment);
+		// });
+		UserData.comments.push(newComment);
+	}
+
+	function handleTyping(event) {
+		setNewComment((prevCommentData) => {
+			return {
+				...prevCommentData,
+				[event.target.name]: event.target.value,
+			};
+		});
+	}
+
 	return (
 		<div className="container">
 			{comments}
 			<NewComment
-				superuser={newComment.username}
-				avatar={newComment.image.webp}
+				superuser={currentUser.username}
+				avatar={currentUser.image.webp}
+				addComment={addComment}
+				handleTyping={handleTyping}
+				newComment={newComment.content}
 			/>
 		</div>
 	);

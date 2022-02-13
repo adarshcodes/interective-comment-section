@@ -1,6 +1,5 @@
 // native import
 import React from "react";
-
 // image import
 
 function NewComment(props) {
@@ -13,13 +12,16 @@ function NewComment(props) {
 			/>
 			<div className="new-comment__form">
 				<textarea
-					name="add-comment"
-					id="add-comment"
 					className="new-comment__add-comment"
 					placeholder="Add a comment..."
+					name="content"
+					value={props.newComment}
+					onChange={props.handleTyping}
 				></textarea>
 			</div>
-			<div className="new-comment__btn-comment">Send</div>
+			<div className="new-comment__btn-comment" onClick={props.addComment}>
+				Send
+			</div>
 		</div>
 	);
 }
