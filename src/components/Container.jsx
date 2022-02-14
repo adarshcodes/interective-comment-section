@@ -1,6 +1,7 @@
 // Native import
 import React from "react";
-// import moment from "moment";
+import moment from "moment";
+import { nanoid } from "nanoid";
 
 // Component import
 import Comment from "./Comment";
@@ -13,52 +14,56 @@ function Container() {
 
 	const [currentUser] = React.useState(UserData.currentUser);
 
-	const [commentsData] = React.useState(UserData.comments);
+	const [userData, setUserData] = React.useState(UserData);
 
-	const comments = commentsData.map((comment) => {
-		const haveReply = comment.replies;
+	const [commentsData, setCommentsData] = React.useState();
 
-		return (
-			<div className="comments-holder">
-				<Comment
-					key={comment.id}
-					avatar={comment.user.image.webp}
-					username={comment.user.username}
-					timestamp={comment.createdAt}
-					text={comment.content}
-					upvote={comment.score}
-					superuser={currentUser.username}
-				/>
+	React.useEffect(() => {
+		const comments = userData.comments.map((comment) => {
+			const haveReply = comment.replies;
 
-				<div className="replies-holder">
-					{haveReply.length > 0
-						? haveReply.map((replies) => (
-								<Replies
-									key="id"
-									avatar={replies.user.image.webp}
-									username={replies.user.username}
-									timestamp={replies.createdAt}
-									text={replies.content}
-									upvote={replies.score}
-									superuser={currentUser.username}
-								/>
-						  ))
-						: null}
+			return (
+				<div className="comments-holder">
+					<Comment
+						key={comment.id}
+						avatar={comment.user.image.webp}
+						username={comment.user.username}
+						timestamp={comment.createdAt}
+						text={comment.content}
+						upvote={comment.score}
+						superuser={currentUser.username}
+					/>
+
+					<div className="replies-holder">
+						{haveReply.length > 0
+							? haveReply.map((replies) => (
+									<Replies
+										key="id"
+										avatar={replies.user.image.webp}
+										username={replies.user.username}
+										timestamp={replies.createdAt}
+										text={replies.content}
+										upvote={replies.score}
+										superuser={currentUser.username}
+									/>
+							  ))
+							: null}
+					</div>
 				</div>
-			</div>
-		);
-	});
+			);
+		});
 
-	// console.log(moment(date, "YYYYMMDD").fromNow());
+		setCommentsData(comments);
+	}, [currentUser.username, userData]);
 
-	// Adding new comment
+	const date = new Date();
 
-	const length = commentsData.length + 1;
+	console.log();
 
 	const [newComment, setNewComment] = React.useState({
-		id: length,
+		id: nanoid(),
 		content: "",
-		createdAt: "",
+		createdAt: moment(date, "YYYYMMDD").fromNow(),
 		score: 0,
 		user: {
 			image: {
@@ -67,14 +72,16 @@ function Container() {
 			},
 			username: currentUser.username,
 		},
+		replies: [],
 	});
 
 	function addComment() {
-		// setCommentsData((prevComm) => {
-		// 	return (prevComm[length] = newComment);
-		// });
-		UserData.comments.push(newComment);
+		setUserData((prevData) => ({
+			comments: [...prevData.comments, newComment],
+		}));
 	}
+
+	console.log(userData.comments);
 
 	function handleTyping(event) {
 		setNewComment((prevCommentData) => {
@@ -87,7 +94,7 @@ function Container() {
 
 	return (
 		<div className="container">
-			{comments}
+			{commentsData}
 			<NewComment
 				superuser={currentUser.username}
 				avatar={currentUser.image.webp}
