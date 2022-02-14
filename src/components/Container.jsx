@@ -58,8 +58,6 @@ function Container() {
 
 	const date = new Date();
 
-	console.log();
-
 	const [newComment, setNewComment] = React.useState({
 		id: nanoid(),
 		content: "",
@@ -81,7 +79,11 @@ function Container() {
 		}));
 	}
 
-	console.log(userData.comments);
+	function errorMessage() {}
+
+	function conditionalCall() {
+		return newComment.content === "" ? errorMessage() : addComment();
+	}
 
 	function handleTyping(event) {
 		setNewComment((prevCommentData) => {
@@ -98,7 +100,7 @@ function Container() {
 			<NewComment
 				superuser={currentUser.username}
 				avatar={currentUser.image.webp}
-				addComment={addComment}
+				addComment={conditionalCall}
 				handleTyping={handleTyping}
 				newComment={newComment.content}
 			/>

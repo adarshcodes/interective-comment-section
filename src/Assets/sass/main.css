@@ -240,6 +240,10 @@ body {
   transform: scale(0.9);
 }
 
+.empty-comment {
+  border: 0.1rem solid #ed6468;
+}
+
 .vote-counter {
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   display: flex;
