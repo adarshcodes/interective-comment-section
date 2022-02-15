@@ -27,6 +27,11 @@
 			@include neuHover;
 		}
 
+		&:hover img {
+			filter: invert(36%) sepia(67%) saturate(560%) hue-rotate(199deg)
+				brightness(89%) contrast(92%);
+		}
+
 		&:active {
 			@include neuActive;
 			transform: scale(0.8);
