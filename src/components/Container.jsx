@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // Native import
 import React from "react";
 import moment from "moment";
@@ -77,6 +78,8 @@ function Container() {
 		setUserData((prevData) => ({
 			comments: [...prevData.comments, newComment],
 		}));
+
+		newComment.content = "";
 	}
 
 	function errorMessage() {}
