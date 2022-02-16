@@ -36,7 +36,6 @@ function Container() {
 						removeComment={() => removeComment(comment.id)}
 					/>
 
-					<div className="replies-holder">
 						{haveReply.length > 0
 							? haveReply.map((replies) => (
 									<Replies
@@ -92,10 +91,30 @@ function Container() {
 					(filComment) => filComment.id !== id
 				);
 				break;
+			} else {
+				if (comment?.replies?.length > 0) {
+					findCommentToDelete(comment, comment.replies, id);
+				}
 			}
 		}
 		setUserData({ ...temp });
 	}
+
+	const findCommentToDelete = (parent, replies, id) => {
+		let temp = parent;
+		for (let reply of replies) {
+			if (reply.id === id) {
+				temp.replies = temp.replies.filter(
+					(filComment) => filComment.id !== id
+				);
+				break;
+			} else {
+				if (reply?.replies?.length > 0) {
+					findCommentToDelete(reply, reply.replies, id);
+				}
+			}
+		}
+	};
 
 	function errorMessage() {}
 
