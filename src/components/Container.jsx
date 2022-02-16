@@ -36,8 +36,9 @@ function Container() {
 						removeComment={() => removeComment(comment.id)}
 					/>
 
-						{haveReply.length > 0
-							? haveReply.map((replies) => (
+					{haveReply.length > 0
+						? haveReply.map((replies) => (
+								<div className="replies-holder">
 									<Replies
 										key="id"
 										avatar={replies.user.image.webp}
@@ -48,9 +49,9 @@ function Container() {
 										superuser={currentUser.username}
 										removeComment={() => removeComment(replies.id)}
 									/>
-							  ))
-							: null}
-					</div>
+								</div>
+						  ))
+						: null}
 				</div>
 			);
 		});
