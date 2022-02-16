@@ -90,6 +90,15 @@
 			margin-right: 0.8rem;
 		}
 
+		&:hover {
+			color: $light-grayish-blue;
+		}
+
+		&:hover img {
+			filter: invert(79%) sepia(39%) saturate(510%) hue-rotate(195deg)
+				brightness(100%) contrast(88%);
+		}
+
 		&:active {
 			@include neuActive;
 			transform: scale(0.9);
