@@ -37,7 +37,10 @@ function Comment(props) {
 
 					{props.username === props.superuser ? (
 						<div className="comment--update">
-							<div className="comment--update__delete" onClick={props.delete}>
+							<div
+								className="comment--update__delete"
+								onClick={props.removeComment}
+							>
 								<i class="fa-solid fa-trash"></i>
 								Delete
 							</div>

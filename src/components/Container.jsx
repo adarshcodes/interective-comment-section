@@ -33,6 +33,7 @@ function Container() {
 						text={comment.content}
 						upvote={comment.score}
 						superuser={currentUser.username}
+						removeComment={() => removeComment(comment.id)}
 					/>
 
 					<div className="replies-holder">
@@ -46,6 +47,7 @@ function Container() {
 										text={replies.content}
 										upvote={replies.score}
 										superuser={currentUser.username}
+										removeComment={() => removeComment(replies.id)}
 									/>
 							  ))
 							: null}
@@ -80,6 +82,19 @@ function Container() {
 		}));
 
 		newComment.content = "";
+	}
+
+	function removeComment(id) {
+		let temp = userData;
+		for (let comment of temp.comments) {
+			if (comment.id === id) {
+				temp.comments = temp.comments.filter(
+					(filComment) => filComment.id !== id
+				);
+				break;
+			}
+		}
+		setUserData({ ...temp });
 	}
 
 	function errorMessage() {}
