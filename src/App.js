@@ -6,7 +6,6 @@ function App() {
 	return (
 		<div className="app-container">
 			<main className="app">
-				<div className="message">This is a notification</div>
 				<Container />
 			</main>
 		</div>

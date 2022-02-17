@@ -278,10 +278,10 @@ body {
 }
 
 .message {
-  border-radius: 0.5rem;
+  border-radius: 0.2rem;
   font-size: 2rem;
   color: #ffffff;
-  background-color: #5457b6;
+  background-color: rgba(9, 202, 127, 0.8);
   padding: 1rem 2.5rem;
   position: fixed;
   right: 0;

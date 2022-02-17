@@ -226,10 +226,10 @@
 // Message showing
 
 .message {
-	border-radius: 0.5rem;
+	border-radius: 0.2rem;
 	font-size: 2rem;
 	color: $white;
-	background-color: $moderate-blue;
+	background-color: rgba($soft-green, 0.8);
 	padding: 1rem 2.5rem;
 	position: fixed;
 	right: 0;
