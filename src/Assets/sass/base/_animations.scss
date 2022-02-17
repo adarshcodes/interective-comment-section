@@ -1,0 +1,21 @@
+@keyframes show-message {
+	0% {
+		transform: translateX(150%);
+	}
+
+	30% {
+		transform: translate(-10%);
+	}
+
+	50% {
+		transform: translate(-10%);
+	}
+
+	80% {
+		transform: translate(-10%);
+	}
+
+	100% {
+		transform: translate(150%);
+	}
+}
