@@ -305,6 +305,9 @@ body {
   top: 0;
   left: 0;
   z-index: 1000;
+  opacity: 0;
+  transition: all 0.2s;
+  transform: scale(0);
 }
 
 .modal .modal-choice {
@@ -365,6 +368,11 @@ body {
 
 .modal .modal-btns .btn-delete:hover {
   background-color: #ffb8bb;
+}
+
+.show-modal {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .vote-counter {

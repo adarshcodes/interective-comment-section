@@ -251,6 +251,9 @@
 	top: 0;
 	left: 0;
 	z-index: 1000;
+	opacity: 0;
+	transition: all 0.2s;
+	transform: scale(0);
 
 	.modal-choice {
 		background-color: $white;
@@ -310,4 +313,9 @@
 			}
 		}
 	}
+}
+
+.show-modal {
+	opacity: 1;
+	transform: scale(1);
 }
