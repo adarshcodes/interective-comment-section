@@ -33,7 +33,8 @@ function Container() {
 						text={comment.content}
 						upvote={comment.score}
 						superuser={currentUser.username}
-						removeComment={() => removeComment(comment.id)}
+						// removeComment={() => removeComment(comment.id)}
+						modal={(modal, () => removeComment(comment.id))}
 					/>
 
 					{haveReply.length > 0
@@ -47,7 +48,8 @@ function Container() {
 										text={replies.content}
 										upvote={replies.score}
 										superuser={currentUser.username}
-										removeComment={() => removeComment(replies.id)}
+										// removeComment={() => removeComment(replies.id)}
+										modal={(modal, () => removeComment(replies.id))}
 									/>
 								</div>
 						  ))
@@ -116,6 +118,16 @@ function Container() {
 		showMessage();
 	}
 
+	const [modalDisplay, setModalDisplay] = React.useState(false);
+
+	function modal() {
+		setModalDisplay(true);
+	}
+
+	function closeModal() {
+		setModalDisplay(false);
+	}
+
 	function removeComment(id) {
 		let temp = userData;
 		for (let comment of temp.comments) {
@@ -129,7 +141,10 @@ function Container() {
 				}
 			}
 		}
-		setUserData({ ...temp });
+
+		setModalDisplay(false);
+
+		return modalDisplay ? setUserData({ ...temp }) : modal();
 	}
 
 	const findCommentToDelete = (parent, replies, id) => {
@@ -165,7 +180,7 @@ function Container() {
 
 	return (
 		<div className="container">
-			<div className="modal">
+			<div className={modalDisplay ? "modal show-modal" : "modal"}>
 				<div className="modal-choice">
 					<h3 className="heading-modal">Delete comment</h3>
 					<p className="para-modal">
@@ -173,8 +188,12 @@ function Container() {
 						comment and can’t be undone.
 					</p>
 					<div className="modal-btns">
-						<div className="btn btn-cancle">No, cancle</div>
-						<div className="btn btn-delete">Yes, Delete</div>
+						<div className="btn btn-cancle" onClick={closeModal}>
+							No, cancle
+						</div>
+						<div className="btn btn-delete" onClick={removeComment}>
+							Yes, Delete
+						</div>
 					</div>
 				</div>
 			</div>
