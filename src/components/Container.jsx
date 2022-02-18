@@ -76,6 +76,8 @@ function Container() {
 		replies: [],
 	});
 
+	const [noti, setNoti] = React.useState(false);
+
 	function addComment() {
 		setUserData((prevData) => ({
 			comments: [...prevData.comments, newComment],
@@ -98,6 +100,20 @@ function Container() {
 				replies: [],
 			};
 		});
+
+		function showMessage() {
+			setNoti(!noti);
+
+			const timeId = setTimeout(() => {
+				setNoti(false);
+			}, 3000);
+
+			return () => {
+				clearTimeout(timeId);
+			};
+		}
+
+		showMessage();
 	}
 
 	function removeComment(id) {
@@ -149,6 +165,9 @@ function Container() {
 
 	return (
 		<div className="container">
+			<div className={noti ? "message message-animation" : "message"}>
+				🎉Comment added successfully!
+			</div>
 			{commentsData}
 			<NewComment
 				superuser={currentUser.username}
