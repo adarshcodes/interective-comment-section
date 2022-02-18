@@ -294,6 +294,79 @@ body {
   animation: show-message cubic-bezier(0.39, 0.08, 0.31, 0.9) 2s;
 }
 
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.modal .modal-choice {
+  background-color: #ffffff;
+  min-height: 25.2rem;
+  max-width: 40rem;
+  padding: 3.2rem;
+  border-radius: 0.8rem;
+}
+
+.modal .heading-modal {
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #324152;
+  margin-bottom: 2rem;
+}
+
+.modal .para-modal {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #67727e;
+  margin-bottom: 2rem;
+}
+
+.modal .modal-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.modal .modal-btns .btn {
+  padding: 1.2rem 3.25rem;
+  font-size: 1.6rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal .modal-btns .btn:active {
+  transform: translateY(0.5rem) scale(0.95);
+}
+
+.modal .modal-btns .btn-cancle {
+  background-color: #67727e;
+}
+
+.modal .modal-btns .btn-cancle:hover {
+  background-color: #c3c4ef;
+}
+
+.modal .modal-btns .btn-delete {
+  background-color: #ed6468;
+}
+
+.modal .modal-btns .btn-delete:hover {
+  background-color: #ffb8bb;
+}
+
 .vote-counter {
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   display: flex;
