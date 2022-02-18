@@ -61,12 +61,10 @@ function Container() {
 		setCommentsData(comments);
 	}, [currentUser.username, userData]);
 
-	const date = new Date();
-
 	const [newComment, setNewComment] = React.useState({
 		id: nanoid(),
 		content: "",
-		createdAt: moment(date, "YYYYMMDD").fromNow(),
+		createdAt: moment().fromNow(),
 		score: 0,
 		user: {
 			image: {
@@ -90,7 +88,7 @@ function Container() {
 				...prevNewComment,
 				id: nanoid(),
 				content: "",
-				createdAt: moment(date, "YYYYMMDD").fromNow(),
+				createdAt: moment().fromNow(),
 				score: 0,
 				user: {
 					image: {
