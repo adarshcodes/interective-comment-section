@@ -12,7 +12,7 @@ function NewComment(props) {
 			/>
 			<div className="new-comment__form">
 				<textarea
-					className="new-comment__add-comment"
+					className="new-comment__add-comment comment-textarea"
 					placeholder="Add a comment..."
 					name="content"
 					value={props.newComment}

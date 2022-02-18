@@ -81,7 +81,23 @@ function Container() {
 			comments: [...prevData.comments, newComment],
 		}));
 
-		newComment.content = "";
+		setNewComment((prevNewComment) => {
+			return {
+				...prevNewComment,
+				id: nanoid(),
+				content: "",
+				createdAt: moment(date, "YYYYMMDD").fromNow(),
+				score: 0,
+				user: {
+					image: {
+						png: "",
+						webp: currentUser.image.webp,
+					},
+					username: currentUser.username,
+				},
+				replies: [],
+			};
+		});
 	}
 
 	function removeComment(id) {
@@ -91,7 +107,6 @@ function Container() {
 				temp.comments = temp.comments.filter(
 					(filComment) => filComment.id !== id
 				);
-				break;
 			} else {
 				if (comment?.replies?.length > 0) {
 					findCommentToDelete(comment, comment.replies, id);
@@ -120,7 +135,7 @@ function Container() {
 	function errorMessage() {}
 
 	function conditionalCall() {
-		return newComment.content === "" ? errorMessage() : addComment();
+		newComment.content === "" ? errorMessage() : addComment();
 	}
 
 	function handleTyping(event) {
