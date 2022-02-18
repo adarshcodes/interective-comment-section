@@ -165,6 +165,19 @@ function Container() {
 
 	return (
 		<div className="container">
+			<div className="modal">
+				<div className="modal-choice">
+					<h3 className="heading-modal">Delete comment</h3>
+					<p className="para-modal">
+						Are you sure you want to delete this comment? This will remove the
+						comment and can’t be undone.
+					</p>
+					<div className="modal-btns">
+						<div className="btn btn-cancle">No, cancle</div>
+						<div className="btn btn-delete">Yes, Delete</div>
+					</div>
+				</div>
+			</div>
 			<div className={noti ? "message message-animation" : "message"}>
 				🎉Comment added successfully!
 			</div>
