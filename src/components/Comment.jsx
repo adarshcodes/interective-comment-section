@@ -55,6 +55,17 @@ function Comment(props) {
 				</div>
 
 				<p className="comment--comment-text">{props.text}</p>
+
+				<div className="update-last">
+					<textarea
+						className="new-comment__add-comment comment-textarea comment--comment-text comment-update"
+						name="content"
+						value={props.text}
+						onChange={props.handleTyping}
+					></textarea>
+
+					<div className="new-comment__btn-comment btn-update">Update</div>
+				</div>
 			</div>
 		</div>
 	);

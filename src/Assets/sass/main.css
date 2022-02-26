@@ -378,6 +378,22 @@ body {
   transform: scale(1);
 }
 
+.update-last {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.update-last .comment-update {
+  width: 100%;
+  overflow: hidden;
+}
+
+.update-last .btn-update {
+  margin-left: 0;
+  margin-top: 1.6rem;
+}
+
 .vote-counter {
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   display: flex;
