@@ -33,8 +33,10 @@ function Container() {
 						text={comment.content}
 						upvote={comment.score}
 						superuser={currentUser.username}
-						// removeComment={() => removeComment(comment.id)}
 						modal={(modal, () => removeComment(comment.id))}
+						editComment={editComment}
+						edit={edit}
+						updateComment={updateComment}
 					/>
 
 					{haveReply.length > 0
@@ -48,8 +50,10 @@ function Container() {
 										text={replies.content}
 										upvote={replies.score}
 										superuser={currentUser.username}
-										// removeComment={() => removeComment(replies.id)}
 										modal={(modal, () => removeComment(replies.id))}
+										editComment={editComment}
+										edit={edit}
+										updateComment={updateComment}
 									/>
 								</div>
 						  ))
@@ -174,6 +178,20 @@ function Container() {
 				[event.target.name]: event.target.value,
 			};
 		});
+	}
+
+	// Updating comments
+	// showing textarea on click to edit
+	const [editComment, setEditComment] = React.useState(true);
+
+	function edit() {
+		setEditComment(!editComment);
+		console.log("edit working", editComment);
+	}
+
+	function updateComment() {
+		setEditComment(!editComment);
+		console.log("edit working", editComment);
 	}
 
 	return (

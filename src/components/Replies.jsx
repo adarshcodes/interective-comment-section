@@ -41,7 +41,7 @@ function Replies(props) {
 								<i class="fa-solid fa-trash"></i>
 								Delete
 							</div>
-							<div className="comment--update__edit">
+							<div className="comment--update__edit" onClick={props.edit}>
 								<i class="fa-solid fa-pen"></i>
 								Edit
 							</div>
@@ -56,7 +56,7 @@ function Replies(props) {
 
 				<p className="comment--comment-text">{props.text}</p>
 
-				{props.username === props.superuser ? (
+				{/* {props.editComment ? (
 					<div className="update-last">
 						<textarea
 							className="new-comment__add-comment comment-textarea comment--comment-text comment-update"
@@ -65,9 +65,14 @@ function Replies(props) {
 							onChange={props.handleTyping}
 						></textarea>
 
-						<div className="new-comment__btn-comment btn-update">Update</div>
+						<div
+							className="new-comment__btn-comment btn-update"
+							onClick={props.updateComment}
+						>
+							Update
+						</div>
 					</div>
-				) : null}
+				) : null} */}
 			</div>
 		</div>
 	);

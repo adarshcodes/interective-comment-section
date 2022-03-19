@@ -55,7 +55,7 @@ function Comment(props) {
 				</div>
 
 				<p className="comment--comment-text">{props.text}</p>
-
+				{/* 
 				{props.username === props.superuser ? (
 					<div className="update-last">
 						<textarea
@@ -67,7 +67,7 @@ function Comment(props) {
 
 						<div className="new-comment__btn-comment btn-update">Update</div>
 					</div>
-				) : null}
+				) : null} */}
 			</div>
 		</div>
 	);
