@@ -18,6 +18,20 @@ function Replies(props) {
 		setVote((prevVote) => prevVote - 1);
 	}
 
+	// Updating comments
+	// showing textarea on click to edit
+	const [editComment, setEditComment] = React.useState(false);
+
+	function editFunction() {
+		setEditComment(!editComment);
+		console.log("edit working", editComment);
+	}
+
+	function updateFunction() {
+		setEditComment(!editComment);
+		console.log("update working", editComment);
+	}
+
 	return (
 		<div className="comment replies">
 			<VoteCounter incre={increVote} decre={decreVote} count={vote} />
@@ -41,7 +55,7 @@ function Replies(props) {
 								<i class="fa-solid fa-trash"></i>
 								Delete
 							</div>
-							<div className="comment--update__edit" onClick={props.edit}>
+							<div className="comment--update__edit" onClick={editFunction}>
 								<i class="fa-solid fa-pen"></i>
 								Edit
 							</div>
@@ -56,7 +70,7 @@ function Replies(props) {
 
 				<p className="comment--comment-text">{props.text}</p>
 
-				{/* {props.editComment ? (
+				{editComment ? (
 					<div className="update-last">
 						<textarea
 							className="new-comment__add-comment comment-textarea comment--comment-text comment-update"
@@ -67,12 +81,12 @@ function Replies(props) {
 
 						<div
 							className="new-comment__btn-comment btn-update"
-							onClick={props.updateComment}
+							onClick={updateFunction}
 						>
 							Update
 						</div>
 					</div>
-				) : null} */}
+				) : null}
 			</div>
 		</div>
 	);
