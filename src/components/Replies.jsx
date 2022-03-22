@@ -68,8 +68,6 @@ function Replies(props) {
 					)}
 				</div>
 
-				<p className="comment--comment-text">{props.text}</p>
-
 				{editComment ? (
 					<div className="update-last">
 						<textarea
@@ -86,7 +84,9 @@ function Replies(props) {
 							Update
 						</div>
 					</div>
-				) : null}
+				) : (
+					<p className="comment--comment-text">{props.text}</p>
+				)}
 			</div>
 		</div>
 	);
