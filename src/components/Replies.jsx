@@ -73,7 +73,7 @@ function Replies(props) {
 						<textarea
 							className="new-comment__add-comment comment-textarea comment--comment-text comment-update"
 							name="content"
-							value={props.text}
+							defaultValue={props.text}
 							onChange={props.handleTyping}
 						></textarea>
 
