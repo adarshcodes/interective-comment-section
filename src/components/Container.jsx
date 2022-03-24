@@ -48,6 +48,7 @@ function Container() {
 										upvote={replies.score}
 										superuser={currentUser.username}
 										modal={(modal, () => removeComment(replies.id))}
+										handleEditing={handleEditing}
 									/>
 								</div>
 						  ))
@@ -173,6 +174,21 @@ function Container() {
 			};
 		});
 	}
+
+	// saving edited comment
+	const [editedComment, setEditedComment] = React.useState({
+		editedComment: "",
+	});
+
+	function handleEditing(event) {
+		setEditedComment((prevEdit) => {
+			return {
+				[event.target.editedComment]: event.target.value,
+			};
+		});
+	}
+
+	console.log(editedComment);
 
 	return (
 		<div className="container">

@@ -32,21 +32,6 @@ function Replies(props) {
 		console.log("update working", editComment);
 	}
 
-	// saving edited comment
-	const [editedComment, setEditedComment] = React.useState({
-		editedComment: "",
-	});
-
-	function handleEditing(event) {
-		setEditedComment((prevEdit) => {
-			return {
-				[event.target.editedComment]: event.target.value,
-			};
-		});
-	}
-
-	console.log(editedComment);
-
 	return (
 		<div className="comment replies">
 			<VoteCounter incre={increVote} decre={decreVote} count={vote} />
@@ -89,12 +74,14 @@ function Replies(props) {
 							className="new-comment__add-comment comment-textarea comment--comment-text comment-update"
 							name="editedComment"
 							defaultValue={props.text}
-							onChange={handleEditing}
+							onChange={props.handleEditing}
 						></textarea>
 
 						<div
 							className="new-comment__btn-comment btn-update"
-							onClick={updateFunction}
+							onClick={() => {
+								updateFunction();
+							}}
 						>
 							Update
 						</div>
