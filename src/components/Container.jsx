@@ -49,6 +49,7 @@ function Container() {
 										superuser={currentUser.username}
 										modal={(modal, () => removeComment(replies.id))}
 										handleEditing={handleEditing}
+										updateComment={() => updateComment(replies.id)}
 									/>
 								</div>
 						  ))
@@ -188,7 +189,35 @@ function Container() {
 		});
 	}
 
-	console.log(editedComment);
+	const findCommentToUpdate = (replies, id) => {
+		for (let reply of replies) {
+			if (reply.id === id) {
+				reply.content = editedComment;
+				break;
+			} else {
+				if (reply?.replies?.length > 0) {
+					findCommentToUpdate(reply, reply.replies, id);
+				}
+			}
+		}
+	};
+
+	const updateComment = (id) => {
+		let temp = userData;
+		for (let comment of temp.comments) {
+			if (comment.id === id) {
+				comment.content = editedComment;
+				break;
+			} else {
+				if (comment?.replies?.length > 0) {
+					findCommentToUpdate(comment.replies, id);
+				}
+			}
+		}
+		setUserData({ ...temp });
+	};
+
+	// Updating Replies
 
 	return (
 		<div className="container">

@@ -29,7 +29,11 @@ function Replies(props) {
 
 	function updateFunction() {
 		setEditComment(!editComment);
-		console.log("update working", editComment);
+	}
+
+	function duoFunction() {
+		props.updateComment();
+		updateFunction();
 	}
 
 	return (
@@ -79,9 +83,7 @@ function Replies(props) {
 
 						<div
 							className="new-comment__btn-comment btn-update"
-							onClick={() => {
-								updateFunction();
-							}}
+							onClick={duoFunction}
 						>
 							Update
 						</div>
