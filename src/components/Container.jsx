@@ -178,16 +178,18 @@ function Container() {
 
 	// saving edited comment
 	const [editedComment, setEditedComment] = React.useState({
-		editedComment: "",
+		edited: "",
 	});
 
 	function handleEditing(event) {
 		setEditedComment((prevEdit) => {
 			return {
-				[event.target.editedComment]: event.target.value,
+				[event.target.name]: event.target.value,
 			};
 		});
 	}
+
+	console.log(editedComment);
 
 	const findCommentToUpdate = (replies, id) => {
 		for (let reply of replies) {
