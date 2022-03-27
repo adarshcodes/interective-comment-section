@@ -182,32 +182,34 @@ function Container() {
 	});
 
 	function handleEditing(event) {
-		setEditedComment((prevEdit) => {
+		setEditedComment(() => {
 			return {
 				[event.target.name]: event.target.value,
 			};
 		});
 	}
 
+	console.log(editedComment.edited);
+
 	const findCommentToUpdate = (replies, id) => {
 		for (let reply of replies) {
 			if (reply.id === id) {
-				reply.content += editedComment.edited;
-				break;
+				reply.content = editedComment.edited;
 			} else {
 				if (reply?.replies?.length > 0) {
 					findCommentToUpdate(reply, reply.replies, id);
 				}
 			}
 		}
+
+		console.log(editedComment.edited + "replies function");
 	};
 
 	const updateComment = (id) => {
 		let temp = userData;
 		for (let comment of temp.comments) {
 			if (comment.id === id) {
-				comment.content += editedComment.edited;
-				break;
+				comment.content = editedComment.edited;
 			} else {
 				if (comment?.replies?.length > 0) {
 					findCommentToUpdate(comment.replies, id);
@@ -215,7 +217,7 @@ function Container() {
 			}
 		}
 		setUserData({ ...temp });
-		console.log(editedComment.edited);
+		console.log(editedComment.edited + "comment function");
 	};
 
 	// Updating Replies
