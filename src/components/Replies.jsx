@@ -76,7 +76,7 @@ function Replies(props) {
 					<div className="update-last">
 						<textarea
 							className="new-comment__add-comment comment-textarea comment--comment-text comment-update"
-							name="editedComment"
+							name="edited"
 							defaultValue={props.text}
 							onChange={props.handleEditing}
 						></textarea>

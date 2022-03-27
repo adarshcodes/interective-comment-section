@@ -189,12 +189,10 @@ function Container() {
 		});
 	}
 
-	console.log(editedComment);
-
 	const findCommentToUpdate = (replies, id) => {
 		for (let reply of replies) {
 			if (reply.id === id) {
-				reply.content = editedComment;
+				reply.content += editedComment.edited;
 				break;
 			} else {
 				if (reply?.replies?.length > 0) {
@@ -208,7 +206,7 @@ function Container() {
 		let temp = userData;
 		for (let comment of temp.comments) {
 			if (comment.id === id) {
-				comment.content = editedComment;
+				comment.content += editedComment.edited;
 				break;
 			} else {
 				if (comment?.replies?.length > 0) {
@@ -217,6 +215,7 @@ function Container() {
 			}
 		}
 		setUserData({ ...temp });
+		console.log(editedComment.edited);
 	};
 
 	// Updating Replies
