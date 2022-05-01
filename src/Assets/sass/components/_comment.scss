@@ -1,0 +1,15 @@
+.app {
+	width: 100%;
+	height: 100%;
+	padding: 6.4rem;
+	@include flex-row-center;
+}
+
+.app-container {
+	width: 73rem;
+}
+
+.comment-box {
+	background-color: $white;
+	width: 100%;
+}

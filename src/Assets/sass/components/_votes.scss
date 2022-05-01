@@ -1,4 +1,5 @@
 .vote-counter {
+	user-select: none;
 	@include neuShadow-1;
 	@include flex-column;
 	justify-content: space-between;
