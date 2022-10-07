@@ -6,13 +6,22 @@ import "./assets/sass/main.css";
 
 // importing Components
 import Comment from "./components/Comment";
+import user from "./userData";
 
 function App() {
+	const userComment = user.comments.map((comm) => {
+		return (
+			<Comment
+				key={comm.id}
+				content={comm.content}
+				time={comm.createdAt}
+				score={comm.score}
+			/>
+		);
+	});
 	return (
 		<main className="app">
-			<section className="app-container">
-				<Comment />
-			</section>
+			<section className="app-container">{userComment}</section>
 		</main>
 	);
 }
