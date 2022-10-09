@@ -4,9 +4,9 @@ import "../assets/sass/main.css";
 import Plus from "../assets/images/icon-plus.svg";
 import Minus from "../assets/images/icon-minus.svg";
 
-export default function VoteCounter() {
+export default function VoteCounter({ score }) {
 	// creating counter state
-	const [votes, setVotes] = useState(1);
+	const [votes, setVotes] = useState(score);
 
 	// updating counter value
 
