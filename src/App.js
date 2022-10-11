@@ -13,9 +13,12 @@ function App() {
 		return (
 			<Comment
 				key={comm.id}
+				username={comm.user.username}
+				avatar={comm.user.image.webp}
 				content={comm.content}
 				time={comm.createdAt}
 				score={comm.score}
+				haveReplies={comm.replies}
 			/>
 		);
 	});
