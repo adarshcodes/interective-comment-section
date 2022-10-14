@@ -6,10 +6,12 @@ import "./assets/sass/main.css";
 
 // importing Components
 import Comment from "./components/Comment";
-import user from "./userData";
+import jsonData from "./data.json";
 
 function App() {
-	const userComment = user.comments.map((comm) => {
+	const [data, setData] = React.useState(jsonData);
+
+	const userComment = data.comments.map((comm) => {
 		return (
 			<Comment
 				key={comm.id}
