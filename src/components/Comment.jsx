@@ -2,6 +2,7 @@ import React from "react";
 import "../assets/sass/main.css";
 import VoteCounter from "./VoteCounter";
 import Replies from "./Replies";
+import ReplyBtn from "./ReplyBtn";
 
 export default function Comment({
 	username,
@@ -24,14 +25,23 @@ export default function Comment({
 			/>
 		);
 	});
+
 	return (
-		<div>
-			<VoteCounter score={score} />
-			<img src={avatar} alt="avatar" />
-			<div>{username}</div>
-			<div>{time}</div>
-			<div>{content}</div>
-			{haveReplies ? replies : null}
+		<div className="comment-box">
+			<div className="comment">
+				<VoteCounter score={score} />
+				<div className="comment-data">
+					<div className="user-data">
+						<img src={avatar} alt="avatar" className="avatar" />
+						<div className="username">{username}</div>
+						<div className="comment-time">{time}</div>
+						<ReplyBtn />
+					</div>
+					<div className="content">{content}</div>
+				</div>
+			</div>
+
+			<div className="replies-box">{haveReplies ? replies : null}</div>
 		</div>
 	);
 }

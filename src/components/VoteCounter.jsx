@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import "../assets/sass/main.css";
 
-import Plus from "../assets/images/icon-plus.svg";
-import Minus from "../assets/images/icon-minus.svg";
-
 export default function VoteCounter({ score }) {
 	// creating counter state
 	const [votes, setVotes] = useState(score);
@@ -28,7 +25,10 @@ export default function VoteCounter({ score }) {
 				className="vote-counter__vote-icon vote-counter__upvote-icon"
 				onClick={upvote}
 			>
-				<img src={Plus} alt="upvote" />
+				<img
+					src={`${process.env.PUBLIC_URL}/images/icon-plus.svg`}
+					alt="upvote"
+				/>
 			</div>
 
 			<p className="vote-counter__vote-count">{votes}</p>
@@ -37,7 +37,10 @@ export default function VoteCounter({ score }) {
 				className="vote-counter__vote-icon vote-counter__upvote-icon"
 				onClick={downvote}
 			>
-				<img src={Minus} alt="downvote" />
+				<img
+					src={`${process.env.PUBLIC_URL}/images/icon-minus.svg`}
+					alt="downvote"
+				/>
 			</div>
 		</div>
 	);

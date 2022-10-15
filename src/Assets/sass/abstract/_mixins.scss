@@ -49,10 +49,6 @@
 	align-items: center;
 }
 
-@mixin border-radius {
-	border-radius: 1.5rem;
-}
-
 @mixin shadow {
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
@@ -72,4 +68,8 @@
 		inset -2px -2px 4px rgba(255, 255, 255, 0.5),
 		inset 2px 2px 2px rgba(255, 255, 255, 0.075),
 		inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+@mixin borderRadius {
+	border-radius: .8rem;
 }

@@ -29,8 +29,7 @@
 		}
 
 		&:hover img {
-			filter: invert(36%) sepia(67%) saturate(560%) hue-rotate(199deg)
-				brightness(89%) contrast(92%);
+			filter: invert(36%) sepia(67%) saturate(560%) hue-rotate(199deg) brightness(89%) contrast(92%);
 		}
 
 		&:active {
@@ -41,7 +40,7 @@
 
 	&__vote-count {
 		font-size: 1.6rem;
-		font-weight: 700;
+		font-weight: 500;
 		color: $moderate-blue;
 	}
 }

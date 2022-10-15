@@ -1,5 +1,6 @@
 import React from "react";
 import VoteCounter from "./VoteCounter";
+import ReplyBtn from "./ReplyBtn";
 
 export default function Replies({
 	repliesContent,
@@ -10,13 +11,21 @@ export default function Replies({
 	avatar,
 }) {
 	return (
-		<div>
+		<div className="comment">
 			<VoteCounter score={repliesScore} />
-			<img src={avatar} alt="avatar" />
-			<div>{username}</div>
-			<div>{replyTime}</div>
-			<div>@{replyTo}</div>
-			<div>{repliesContent}</div>
+			<div className="comment-data">
+				<div className="user-data">
+					<img className="avatar" src={avatar} alt="avatar" />
+					<div className="username">{username}</div>
+					<div className="comment-time">{replyTime}</div>
+					<ReplyBtn />
+				</div>
+
+				<div className="content">
+					<span className="replying-to">@{replyTo} </span>
+					{`${repliesContent}`}
+				</div>
+			</div>
 		</div>
 	);
 }
