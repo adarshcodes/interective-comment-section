@@ -36,6 +36,10 @@
 		color: $grayish-blue;
 		font-weight: 400;
 	}
+
+	.content {
+		line-height: 2.4rem
+	}
 }
 
 .comment,
@@ -53,19 +57,62 @@
 			align-items: center;
 			gap: 1.6rem;
 			margin-bottom: 1.5rem;
-
-			.replyBtn {
-				margin-left: auto;
-				color: $moderate-blue;
-				font-weight: 500;
-				cursor: pointer;
-
-				img {
-					margin-right: .8rem;
-				}
-			}
 		}
 	}
+}
+
+.replyBtn,
+.deleteBtn,
+.editBtn {
+	color: $moderate-blue;
+	font-weight: 500;
+	cursor: pointer;
+	margin-left: auto;
+
+	img {
+		margin-right: .8rem;
+	}
+}
+
+.replyBtn,
+.editBtn {
+	transition: all .2s;
+
+	img {
+		transition: all .2s;
+	}
+
+	&:hover {
+		color: $light-grayish-blue;
+
+		img {
+			filter: brightness(225%);
+		}
+	}
+}
+
+.deleteBtn {
+	color: $soft-red;
+
+	transition: all .2s;
+
+	img {
+		transition: all .2s;
+	}
+
+	&:hover {
+		color: $pale-red;
+
+		img {
+			filter: brightness(195%);
+		}
+	}
+}
+
+.edit-and-delete {
+	margin-left: auto;
+	display: flex;
+	gap: 2.4rem;
 }
 
 .replies-box {
@@ -80,4 +127,11 @@
 .replying-to {
 	color: $moderate-blue;
 	font-weight: 500;
+}
+
+.tag {
+	background-color: $moderate-blue;
+	color: $white;
+	padding: .2rem .6rem;
+	border-radius: .2rem;
 }

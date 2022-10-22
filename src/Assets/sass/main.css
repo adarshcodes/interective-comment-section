@@ -83,6 +83,9 @@ body {
   color: #67727e;
   font-weight: 400;
 }
+.comment-box .content {
+  line-height: 2.4rem;
+}
 
 .comment,
 .replies {
@@ -101,20 +104,56 @@ body {
   gap: 1.6rem;
   margin-bottom: 1.5rem;
 }
-.comment .comment-data .user-data .replyBtn,
-.comment .replies-data .user-data .replyBtn,
-.replies .comment-data .user-data .replyBtn,
-.replies .replies-data .user-data .replyBtn {
-  margin-left: auto;
+
+.replyBtn,
+.deleteBtn,
+.editBtn {
   color: #5457b6;
   font-weight: 500;
   cursor: pointer;
+  margin-left: auto;
 }
-.comment .comment-data .user-data .replyBtn img,
-.comment .replies-data .user-data .replyBtn img,
-.replies .comment-data .user-data .replyBtn img,
-.replies .replies-data .user-data .replyBtn img {
+.replyBtn img,
+.deleteBtn img,
+.editBtn img {
   margin-right: 0.8rem;
+}
+
+.replyBtn,
+.editBtn {
+  transition: all 0.2s;
+}
+.replyBtn img,
+.editBtn img {
+  transition: all 0.2s;
+}
+.replyBtn:hover,
+.editBtn:hover {
+  color: #c3c4ef;
+}
+.replyBtn:hover img,
+.editBtn:hover img {
+  filter: brightness(225%);
+}
+
+.deleteBtn {
+  color: #ed6468;
+  transition: all 0.2s;
+}
+.deleteBtn img {
+  transition: all 0.2s;
+}
+.deleteBtn:hover {
+  color: #ffb8bb;
+}
+.deleteBtn:hover img {
+  filter: brightness(195%);
+}
+
+.edit-and-delete {
+  margin-left: auto;
+  display: flex;
+  gap: 2.4rem;
 }
 
 .replies-box {
@@ -129,6 +168,13 @@ body {
 .replying-to {
   color: #5457b6;
   font-weight: 500;
+}
+
+.tag {
+  background-color: #5457b6;
+  color: #ffffff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.2rem;
 }
 
 .vote-counter {

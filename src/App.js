@@ -6,6 +6,7 @@ import "./assets/sass/main.css";
 
 // importing Components
 import Comment from "./components/Comment";
+import NewComment from "./components/NewComment";
 import jsonData from "./data.json";
 
 function App() {
@@ -21,12 +22,16 @@ function App() {
 				time={comm.createdAt}
 				score={comm.score}
 				haveReplies={comm.replies}
+				currentUser={data.currentUser.username}
 			/>
 		);
 	});
 	return (
 		<main className="app">
-			<section className="app-container">{userComment}</section>
+			<section className="app-container">
+				<div className="comment-container">{userComment}</div>
+				<NewComment avatar={data.currentUser.image.webp} />
+			</section>
 		</main>
 	);
 }

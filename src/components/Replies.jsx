@@ -1,6 +1,9 @@
 import React from "react";
 import VoteCounter from "./VoteCounter";
 import ReplyBtn from "./ReplyBtn";
+import DeleteBtn from "./DeleteBtn";
+import EditBtn from "./EditBtn";
+import Tag from "./Tag";
 
 export default function Replies({
 	repliesContent,
@@ -9,6 +12,7 @@ export default function Replies({
 	repliesScore,
 	username,
 	avatar,
+	currentUser,
 }) {
 	return (
 		<div className="comment">
@@ -17,8 +21,16 @@ export default function Replies({
 				<div className="user-data">
 					<img className="avatar" src={avatar} alt="avatar" />
 					<div className="username">{username}</div>
+					{currentUser === username ? <Tag /> : null}
 					<div className="comment-time">{replyTime}</div>
-					<ReplyBtn />
+					{currentUser === username ? (
+						<div className="edit-and-delete">
+							<DeleteBtn />
+							<EditBtn />
+						</div>
+					) : (
+						<ReplyBtn />
+					)}
 				</div>
 
 				<div className="content">
