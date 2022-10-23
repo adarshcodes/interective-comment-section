@@ -89,6 +89,10 @@
 			filter: brightness(225%);
 		}
 	}
+
+	&:active {
+		transform: scale(0.9);
+	}
 }
 
 .deleteBtn {
@@ -106,6 +110,10 @@
 		img {
 			filter: brightness(195%);
 		}
+	}
+
+	&:active {
+		transform: scale(0.9);
 	}
 }
 
