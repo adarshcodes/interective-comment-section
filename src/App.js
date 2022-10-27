@@ -26,11 +26,24 @@ function App() {
 			/>
 		);
 	});
+
+	function addComment(newComment) {
+		const temp = data;
+		temp.comments.push(newComment);
+		setData({ ...temp });
+	}
+
 	return (
 		<main className="app">
 			<section className="app-container">
 				<div className="comment-container">{userComment}</div>
-				<NewComment avatar={data.currentUser.image.webp} />
+				<NewComment
+					avatar={data.currentUser.image.webp}
+					// handleComment={handleComment}
+					// newComment={newComment}
+					addComment={addComment}
+					data={data}
+				/>
 			</section>
 		</main>
 	);

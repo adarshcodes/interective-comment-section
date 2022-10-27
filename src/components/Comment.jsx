@@ -17,7 +17,6 @@ export default function Comment({
 	currentUser,
 }) {
 	const current = currentUser;
-	console.log(current);
 
 	const replies = haveReplies.map((rep) => {
 		return (

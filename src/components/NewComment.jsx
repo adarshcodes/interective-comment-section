@@ -1,14 +1,52 @@
 import React from "react";
+import { nanoid } from "nanoid";
 
-export default function NewComment({ avatar }) {
+export default function NewComment({ avatar, data, addComment }) {
+	const [content, setContent] = React.useState("");
+
+	const [newComment, setNewComment] = React.useState({
+		id: nanoid(),
+		content: content,
+		createdAt: "",
+		score: 0,
+		user: {
+			image: {
+				webp: data.currentUser.image.webp,
+			},
+			username: data.currentUser.username,
+		},
+		replies: [],
+	});
+
+	function handleComment(event) {
+		setNewComment((prevComment) => {
+			return {
+				...prevComment,
+				content: event.target.value,
+			};
+		});
+
+		setContent(event.target.value);
+	}
+
 	return (
 		<div className="new-comment">
 			<img src={avatar} alt="avatar" className="avatar" />
 			<textarea
 				className="comment-textarea"
 				placeholder="Add a comment..."
+				onChange={handleComment}
+				value={content}
 			></textarea>
-			<span className="btn-send">Send</span>
+			<span
+				className="btn-send"
+				onClick={() => {
+					addComment(newComment);
+					setContent("");
+				}}
+			>
+				Send
+			</span>
 		</div>
 	);
 }
