@@ -1,13 +1,16 @@
 import React from "react";
 import { nanoid } from "nanoid";
+import moment from "moment";
 
 export default function NewComment({ avatar, data, addComment }) {
 	const [content, setContent] = React.useState("");
 
+	const timeago = moment(data.created_at).fromNow();
+
 	const [newComment, setNewComment] = React.useState({
 		id: nanoid(),
 		content: content,
-		createdAt: "",
+		createdAt: timeago,
 		score: 0,
 		user: {
 			image: {
@@ -28,7 +31,6 @@ export default function NewComment({ avatar, data, addComment }) {
 
 		setContent(event.target.value);
 	}
-
 	return (
 		<div className="new-comment">
 			<img src={avatar} alt="avatar" className="avatar" />

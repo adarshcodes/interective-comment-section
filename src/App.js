@@ -1,5 +1,6 @@
 // importing native dependencies
-import React from "react";
+import TimeAgo from "javascript-time-ago";
+import React, { useEffect } from "react";
 
 // importing Stylesheet
 import "./assets/sass/main.css";
@@ -10,7 +11,10 @@ import NewComment from "./components/NewComment";
 import jsonData from "./data.json";
 
 function App() {
+	// Getting data
 	const [data, setData] = React.useState(jsonData);
+
+	// Rendering Comments
 
 	const userComment = data.comments.map((comm) => {
 		return (
@@ -23,14 +27,23 @@ function App() {
 				score={comm.score}
 				haveReplies={comm.replies}
 				currentUser={data.currentUser.username}
+				deleteComment={deleteComment}
 			/>
 		);
 	});
+
+	// Adding new Comment
 
 	function addComment(newComment) {
 		const temp = data;
 		temp.comments.push(newComment);
 		setData({ ...temp });
+	}
+
+	// Deleting Comment
+
+	function deleteComment(id) {
+		console.log(id);
 	}
 
 	return (

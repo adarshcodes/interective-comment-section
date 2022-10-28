@@ -2,9 +2,6 @@ import React from "react";
 import "../assets/sass/main.css";
 import VoteCounter from "./VoteCounter";
 import Replies from "./Replies";
-import ReplyBtn from "./ReplyBtn";
-import DeleteBtn from "./DeleteBtn";
-import EditBtn from "./EditBtn";
 import Tag from "./Tag";
 
 export default function Comment({
@@ -16,8 +13,6 @@ export default function Comment({
 	haveReplies,
 	currentUser,
 }) {
-	const current = currentUser;
-
 	const replies = haveReplies.map((rep) => {
 		return (
 			<Replies
@@ -28,7 +23,7 @@ export default function Comment({
 				avatar={rep.user.image.webp}
 				repliesContent={rep.content}
 				replyTo={rep.replyingTo}
-				currentUser={current}
+				currentUser={currentUser}
 			/>
 		);
 	});
@@ -41,15 +36,34 @@ export default function Comment({
 					<div className="user-data">
 						<img src={avatar} alt="avatar" className="avatar" />
 						<div className="username">{username}</div>
-						{current === username ? <Tag /> : null}
+						{currentUser === username ? <Tag /> : null}
 						<div className="comment-time">{time}</div>
-						{current === username ? (
+						{currentUser === username ? (
 							<div className="edit-and-delete">
-								<DeleteBtn />
-								<EditBtn />
+								<div className="deleteBtn">
+									<img
+										src={`${process.env.PUBLIC_URL}/images/icon-delete.svg`}
+										alt="delete-icon"
+									/>
+									Delete
+								</div>
+
+								<div className="editBtn">
+									<img
+										src={`${process.env.PUBLIC_URL}/images/icon-edit.svg`}
+										alt="edit-icon"
+									/>
+									Edit
+								</div>
 							</div>
 						) : (
-							<ReplyBtn />
+							<div className="replyBtn">
+								<img
+									src={`${process.env.PUBLIC_URL}/images/icon-reply.svg`}
+									alt="reply-icon"
+								/>
+								Reply
+							</div>
 						)}
 					</div>
 					<div className="content">{content}</div>

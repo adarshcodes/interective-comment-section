@@ -1,8 +1,5 @@
 import React from "react";
 import VoteCounter from "./VoteCounter";
-import ReplyBtn from "./ReplyBtn";
-import DeleteBtn from "./DeleteBtn";
-import EditBtn from "./EditBtn";
 import Tag from "./Tag";
 
 export default function Replies({
@@ -25,11 +22,30 @@ export default function Replies({
 					<div className="comment-time">{replyTime}</div>
 					{currentUser === username ? (
 						<div className="edit-and-delete">
-							<DeleteBtn />
-							<EditBtn />
+							<div className="deleteBtn">
+								<img
+									src={`${process.env.PUBLIC_URL}/images/icon-delete.svg`}
+									alt="delete-icon"
+								/>
+								Delete
+							</div>
+
+							<div className="editBtn">
+								<img
+									src={`${process.env.PUBLIC_URL}/images/icon-edit.svg`}
+									alt="edit-icon"
+								/>
+								Edit
+							</div>
 						</div>
 					) : (
-						<ReplyBtn />
+						<div className="replyBtn">
+							<img
+								src={`${process.env.PUBLIC_URL}/images/icon-reply.svg`}
+								alt="reply-icon"
+							/>
+							Reply
+						</div>
 					)}
 				</div>
 
