@@ -94,6 +94,12 @@ body {
   padding: 2.4rem;
   display: flex;
 }
+.comment .comment-data,
+.comment .replies-data,
+.replies .comment-data,
+.replies .replies-data {
+  width: 100%;
+}
 .comment .comment-data .user-data,
 .comment .replies-data .user-data,
 .replies .comment-data .user-data,
