@@ -1,6 +1,5 @@
 // importing native dependencies
-import TimeAgo from "javascript-time-ago";
-import React, { useEffect } from "react";
+import React from "react";
 
 // importing Stylesheet
 import "./assets/sass/main.css";
@@ -27,7 +26,8 @@ function App() {
 				score={comm.score}
 				haveReplies={comm.replies}
 				currentUser={data.currentUser.username}
-				deleteComment={deleteComment}
+				deleteComment={() => deleteComment(comm.id)}
+				deleteReply={deleteComment}
 			/>
 		);
 	});
@@ -44,6 +44,34 @@ function App() {
 
 	function deleteComment(id) {
 		console.log(id);
+		const temp = data;
+
+		for (let comment of temp.comments) {
+			if (comment.id === id) {
+				temp.comments = temp.comments.filter(
+					(filComment) => filComment.id !== id
+				);
+				break;
+			} else if (comment?.replies?.length > 0) {
+				deleteReply(comment, comment.replies, id);
+			}
+		}
+
+		setData({ ...temp });
+	}
+
+	function deleteReply(comment, replies, id) {
+		const temp = comment;
+		for (let reply of replies) {
+			if (reply.id === id) {
+				temp.replies = temp.replies.filter(
+					(filterReply) => filterReply.id !== id
+				);
+				break;
+			} else if (reply?.replies?.length > 0) {
+				deleteReply(reply, reply.replies, id);
+			}
+		}
 	}
 
 	return (

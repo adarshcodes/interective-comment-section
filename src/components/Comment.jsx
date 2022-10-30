@@ -12,6 +12,8 @@ export default function Comment({
 	score,
 	haveReplies,
 	currentUser,
+	deleteComment,
+	deleteReply,
 }) {
 	const replies = haveReplies.map((rep) => {
 		return (
@@ -24,6 +26,7 @@ export default function Comment({
 				repliesContent={rep.content}
 				replyTo={rep.replyingTo}
 				currentUser={currentUser}
+				deleteReply={() => deleteReply(rep.id)}
 			/>
 		);
 	});
@@ -40,7 +43,7 @@ export default function Comment({
 						<div className="comment-time">{time}</div>
 						{currentUser === username ? (
 							<div className="edit-and-delete">
-								<div className="deleteBtn">
+								<div className="deleteBtn" onClick={deleteComment}>
 									<img
 										src={`${process.env.PUBLIC_URL}/images/icon-delete.svg`}
 										alt="delete-icon"

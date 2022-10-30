@@ -10,6 +10,7 @@ export default function Replies({
 	username,
 	avatar,
 	currentUser,
+	deleteReply,
 }) {
 	return (
 		<div className="comment">
@@ -22,7 +23,7 @@ export default function Replies({
 					<div className="comment-time">{replyTime}</div>
 					{currentUser === username ? (
 						<div className="edit-and-delete">
-							<div className="deleteBtn">
+							<div className="deleteBtn" onClick={deleteReply}>
 								<img
 									src={`${process.env.PUBLIC_URL}/images/icon-delete.svg`}
 									alt="delete-icon"
