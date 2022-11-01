@@ -145,3 +145,15 @@
 	padding: .2rem .6rem;
 	border-radius: .2rem;
 }
+
+// Update Comment styling
+.edit-content {
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+
+	.btn-update {
+		margin-top: 1.6rem;
+		align-self: flex-end;
+	}
+}

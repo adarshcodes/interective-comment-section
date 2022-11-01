@@ -5,6 +5,7 @@ import Replies from "./Replies";
 import Tag from "./Tag";
 
 export default function Comment({
+	id,
 	username,
 	avatar,
 	content,
@@ -14,6 +15,7 @@ export default function Comment({
 	currentUser,
 	deleteComment,
 	deleteReply,
+	editComment,
 }) {
 	const replies = haveReplies.map((rep) => {
 		return (
@@ -30,6 +32,9 @@ export default function Comment({
 			/>
 		);
 	});
+
+	// Adding Edit State
+	const [edit, setEdit] = React.useState(false);
 
 	return (
 		<div className="comment-box">
@@ -51,7 +56,12 @@ export default function Comment({
 									Delete
 								</div>
 
-								<div className="editBtn">
+								<div
+									className="editBtn"
+									onClick={() => {
+										setEdit(content);
+									}}
+								>
 									<img
 										src={`${process.env.PUBLIC_URL}/images/icon-edit.svg`}
 										alt="edit-icon"
@@ -69,7 +79,28 @@ export default function Comment({
 							</div>
 						)}
 					</div>
-					<div className="content">{content}</div>
+					<div className="content">
+						{!edit ? (
+							<div className="content-text">{content}</div>
+						) : (
+							<div className="edit-content">
+								<textarea
+									className="update-textarea comment-textarea"
+									value={edit}
+									onChange={(e) => setEdit(e.target.value)}
+								></textarea>
+								<span
+									className="btn-update btn-send"
+									onClick={() => {
+										editComment(id, edit);
+										setEdit(false);
+									}}
+								>
+									Update
+								</span>
+							</div>
+						)}
+					</div>
 				</div>
 			</div>
 

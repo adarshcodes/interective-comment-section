@@ -19,6 +19,7 @@ function App() {
 		return (
 			<Comment
 				key={comm.id}
+				id={comm.id}
 				username={comm.user.username}
 				avatar={comm.user.image.webp}
 				content={comm.content}
@@ -28,6 +29,7 @@ function App() {
 				currentUser={data.currentUser.username}
 				deleteComment={() => deleteComment(comm.id)}
 				deleteReply={deleteComment}
+				editComment={editComment}
 			/>
 		);
 	});
@@ -38,9 +40,10 @@ function App() {
 		const temp = data;
 		temp.comments.push(newComment);
 		setData({ ...temp });
+		console.log(newComment.id);
 	}
 
-	// Deleting Comment
+	// Deleting Comment and Reply
 
 	function deleteComment(id) {
 		console.log(id);
@@ -60,6 +63,8 @@ function App() {
 		setData({ ...temp });
 	}
 
+	// Deleting Reply
+
 	function deleteReply(comment, replies, id) {
 		const temp = comment;
 		for (let reply of replies) {
@@ -74,14 +79,38 @@ function App() {
 		}
 	}
 
+	// Editing Comment
+	function editComment(id, content) {
+		const temp = data;
+
+		for (let comment of temp.comments) {
+			if (comment.id === id) {
+				comment.content = content;
+				break;
+			} else if (comment?.replies?.length > 0) {
+				editReply(comment, comment.replies, id, content);
+			}
+		}
+		setData({ ...temp });
+	}
+
+	function editReply(replies, id, content) {
+		for (let reply of replies) {
+			if (reply.id === id) {
+				reply.content = content;
+				break;
+			} else if (reply?.replies?.length > 0) {
+				editReply(reply, reply.replies, id, content);
+			}
+		}
+	}
+
 	return (
 		<main className="app">
 			<section className="app-container">
 				<div className="comment-container">{userComment}</div>
 				<NewComment
 					avatar={data.currentUser.image.webp}
-					// handleComment={handleComment}
-					// newComment={newComment}
 					addComment={addComment}
 					data={data}
 				/>
