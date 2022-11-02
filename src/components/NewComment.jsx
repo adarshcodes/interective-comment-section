@@ -8,9 +8,9 @@ export default function NewComment({ avatar, data, addComment }) {
 	const timeago = moment(data.created_at).fromNow();
 
 	const [newComment, setNewComment] = React.useState({
-		id: nanoid(),
+		id: "",
 		content: content,
-		createdAt: timeago,
+		createdAt: "",
 		score: 0,
 		user: {
 			image: {
@@ -26,11 +26,14 @@ export default function NewComment({ avatar, data, addComment }) {
 			return {
 				...prevComment,
 				content: event.target.value,
+				id: nanoid(),
+				createdAt: timeago,
 			};
 		});
 
 		setContent(event.target.value);
 	}
+
 	return (
 		<div className="new-comment">
 			<img src={avatar} alt="avatar" className="avatar" />
