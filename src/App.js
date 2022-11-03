@@ -100,7 +100,7 @@ function App() {
 				reply.content = content;
 				break;
 			} else if (reply?.replies?.length > 0) {
-				editReplies(reply, reply.replies, id, content);
+				editReplies(reply.replies, id, content);
 			}
 		}
 	}
