@@ -21,6 +21,7 @@ export default function Comment({
 		return (
 			<Replies
 				key={rep.id}
+				id={rep.id}
 				replyTime={rep.createdAt}
 				repliesScore={rep.score}
 				username={rep.user.username}
@@ -29,6 +30,7 @@ export default function Comment({
 				replyTo={rep.replyingTo}
 				currentUser={currentUser}
 				deleteReply={() => deleteReply(rep.id)}
+				editReplies={editComment}
 			/>
 		);
 	});

@@ -88,19 +88,19 @@ function App() {
 				comment.content = content;
 				break;
 			} else if (comment?.replies?.length > 0) {
-				editReply(comment, comment.replies, id, content);
+				editReplies(comment.replies, id, content);
 			}
 		}
 		setData({ ...temp });
 	}
 
-	function editReply(replies, id, content) {
+	function editReplies(replies, id, content) {
 		for (let reply of replies) {
 			if (reply.id === id) {
 				reply.content = content;
 				break;
 			} else if (reply?.replies?.length > 0) {
-				editReply(reply, reply.replies, id, content);
+				editReplies(reply, reply.replies, id, content);
 			}
 		}
 	}

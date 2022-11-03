@@ -3,6 +3,7 @@ import VoteCounter from "./VoteCounter";
 import Tag from "./Tag";
 
 export default function Replies({
+	id,
 	repliesContent,
 	replyTo,
 	replyTime,
@@ -11,7 +12,11 @@ export default function Replies({
 	avatar,
 	currentUser,
 	deleteReply,
+	editReplies,
 }) {
+	// Adding Edit State
+	const [edit, setEdit] = React.useState(false);
+
 	return (
 		<div className="comment">
 			<VoteCounter score={repliesScore} />
@@ -31,7 +36,12 @@ export default function Replies({
 								Delete
 							</div>
 
-							<div className="editBtn">
+							<div
+								className="editBtn"
+								onClick={() => {
+									setEdit(repliesContent);
+								}}
+							>
 								<img
 									src={`${process.env.PUBLIC_URL}/images/icon-edit.svg`}
 									alt="edit-icon"
@@ -51,8 +61,29 @@ export default function Replies({
 				</div>
 
 				<div className="content">
-					<span className="replying-to">@{replyTo} </span>
-					{`${repliesContent}`}
+					{!edit ? (
+						<div className="content-text">
+							<span className="replying-to">@{replyTo} </span>
+							{`${repliesContent}`}
+						</div>
+					) : (
+						<div className="edit-content">
+							<textarea
+								className="update-textarea comment-textarea"
+								value={edit}
+								onChange={(e) => setEdit(e.target.value)}
+							></textarea>
+							<span
+								className="btn-update btn-send"
+								onClick={() => {
+									editReplies(id, edit);
+									setEdit(false);
+								}}
+							>
+								Update
+							</span>
+						</div>
+					)}
 				</div>
 			</div>
 		</div>
