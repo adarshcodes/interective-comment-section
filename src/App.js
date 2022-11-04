@@ -43,6 +43,7 @@ function App() {
 		const temp = data;
 		temp.comments.push(newComment);
 		setData({ ...temp });
+		setMessage(true);
 	}
 
 	// Deleting Comment and Reply
@@ -113,11 +114,34 @@ function App() {
 		for (let comment of temp.comments) {
 			if (comment.id === id) {
 				comment.replies.push(newReply);
+			} else if (comment?.replies?.length > 0) {
+				addRepliesReply(comment, comment.replies, id, newReply);
 			}
 		}
 
 		setData({ ...temp });
 	}
+
+	function addRepliesReply(comment, replies, id, newReply) {
+		const temp = comment;
+		for (let reply of replies) {
+			if (reply.id === id) {
+				temp.replies.push(newReply);
+			} else if (reply?.replies?.length > 0) {
+				addRepliesReply(reply, reply.replies, id, newReply);
+			}
+		}
+		setData({ ...temp });
+	}
+
+	// Showing confirmation message
+	const [showMessage, setMessage] = React.useState(false);
+
+	function closeNotif() {
+		setMessage(false);
+	}
+
+	setTimeout(closeNotif, 3000);
 
 	return (
 		<main className="app">
@@ -128,6 +152,14 @@ function App() {
 					addComment={addComment}
 					data={data}
 				/>
+
+				<div
+					className={`confirmation ${
+						showMessage ? "animate-confirmation" : null
+					}`}
+				>
+					Comment added successfully🎉
+				</div>
 			</section>
 		</main>
 	);

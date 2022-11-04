@@ -311,4 +311,24 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.confirmation {
+  position: fixed;
+  top: 5rem;
+  left: -50%;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  padding: 1rem 2.5rem;
+  text-transform: uppercase;
+  transition: all 1s ease-in-out;
+  border: 1px solid #09ca7f;
+  color: #09ca7f;
+}
+
+.animate-confirmation {
+  left: 0%;
+  letter-spacing: 0.2rem;
+  word-spacing: 1.5rem;
+  padding: 1rem 3rem;
 }/*# sourceMappingURL=main.css.map */

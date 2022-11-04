@@ -73,3 +73,24 @@
     flex-direction: column;
     gap: 2rem;
 }
+
+.confirmation {
+    position: fixed;
+    top: 5rem;
+    left: -50%;
+    background-color: $white;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    padding: 1rem 2.5rem;
+    text-transform: uppercase;
+    transition: all 1s ease-in-out;
+    border: 1px solid $soft-green;
+    color: $soft-green;
+}
+
+.animate-confirmation {
+    // bottom: 5rem;
+    left: 0%;
+    letter-spacing: .2rem;
+    word-spacing: 1.5rem;
+    padding: 1rem 3rem;
+}

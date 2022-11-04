@@ -1,6 +1,7 @@
 import React from "react";
 import { nanoid } from "nanoid";
 import moment from "moment";
+import { clear } from "@testing-library/user-event/dist/clear";
 
 export default function NewComment({ avatar, data, addComment }) {
 	const [content, setContent] = React.useState("");
@@ -34,6 +35,17 @@ export default function NewComment({ avatar, data, addComment }) {
 		setContent(event.target.value);
 	}
 
+	function clearState() {
+		setNewComment((prevComment) => {
+			return {
+				...prevComment,
+				content: "",
+				id: "",
+				createdAt: "",
+			};
+		});
+	}
+
 	return (
 		<div className="new-comment">
 			<img src={avatar} alt="avatar" className="avatar" />
@@ -48,6 +60,7 @@ export default function NewComment({ avatar, data, addComment }) {
 				onClick={() => {
 					addComment(newComment);
 					setContent("");
+					clearState();
 				}}
 			>
 				Send
