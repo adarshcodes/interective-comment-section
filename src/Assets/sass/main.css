@@ -258,6 +258,11 @@ body {
   height: 4rem;
 }
 
+.blank-validation {
+  outline: 2px solid #ed6468;
+  color: #ed6468;
+}
+
 .comment-textarea {
   width: 100%;
   border: 1px solid #E9EBF0;
@@ -271,7 +276,8 @@ body {
   font-size: 1.6rem;
 }
 .comment-textarea:focus-visible {
-  outline: 2px solid #5457b6;
+  border: 2px solid #5457b6;
+  outline: none;
 }
 .comment-textarea::-webkit-scrollbar {
   width: 0.3rem;
@@ -324,6 +330,26 @@ body {
   transition: all 1s ease-in-out;
   border: 1px solid #09ca7f;
   color: #09ca7f;
+}
+
+.del-confirmation {
+  position: fixed;
+  top: 5rem;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  padding: 1rem 2.5rem;
+  text-transform: uppercase;
+  transition: all 1s ease-in-out;
+  right: -50%;
+  border: #ed6468 solid 1px;
+  color: #ed6468;
+}
+
+.animate-del-confirmation {
+  right: 0%;
+  letter-spacing: 0.2rem;
+  word-spacing: 1.5rem;
+  padding: 1rem 3rem;
 }
 
 .animate-confirmation {

@@ -46,8 +46,6 @@ function App() {
 		setMessage(true);
 	}
 
-	// Deleting Comment and Reply
-
 	function deleteComment(id) {
 		const temp = data;
 
@@ -61,8 +59,8 @@ function App() {
 				deleteReply(comment, comment.replies, id);
 			}
 		}
-
 		setData({ ...temp });
+		setDelMessage(true);
 	}
 
 	// Deleting Reply
@@ -79,6 +77,7 @@ function App() {
 				deleteReply(reply, reply.replies, id);
 			}
 		}
+		setDelMessage(true);
 	}
 
 	// Editing Comment
@@ -138,9 +137,11 @@ function App() {
 
 	// Showing confirmation message
 	const [showMessage, setMessage] = React.useState(false);
+	const [showDelMessage, setDelMessage] = React.useState(false);
 
 	function closeNotif() {
 		setMessage(false);
+		setDelMessage(false);
 	}
 
 	setTimeout(closeNotif, 3000);
@@ -161,6 +162,14 @@ function App() {
 					}`}
 				>
 					Comment added successfully🎉
+				</div>
+
+				<div
+					className={`del-confirmation ${
+						showDelMessage ? "animate-del-confirmation" : null
+					}`}
+				>
+					Comment Deleted successfully💀
 				</div>
 			</section>
 		</main>

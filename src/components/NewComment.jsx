@@ -1,7 +1,6 @@
 import React from "react";
 import { nanoid } from "nanoid";
 import moment from "moment";
-import { clear } from "@testing-library/user-event/dist/clear";
 
 export default function NewComment({ avatar, data, addComment }) {
 	const [content, setContent] = React.useState("");
@@ -33,9 +32,21 @@ export default function NewComment({ avatar, data, addComment }) {
 		});
 
 		setContent(event.target.value);
+		setNullStyle(false);
 	}
 
-	function clearState() {
+	const [nullStyle, setNullStyle] = React.useState(false);
+
+	function validateComment() {
+		if (newComment.content) {
+			addComment(newComment);
+			setNullStyle(false);
+		} else {
+			setNullStyle(true);
+		}
+	}
+
+	function clearComment() {
 		setNewComment((prevComment) => {
 			return {
 				...prevComment,
@@ -50,7 +61,7 @@ export default function NewComment({ avatar, data, addComment }) {
 		<div className="new-comment">
 			<img src={avatar} alt="avatar" className="avatar" />
 			<textarea
-				className="comment-textarea"
+				className={`comment-textarea ${nullStyle ? "blank-validation" : null}`}
 				placeholder="Add a comment..."
 				onChange={handleComment}
 				value={content}
@@ -58,9 +69,9 @@ export default function NewComment({ avatar, data, addComment }) {
 			<span
 				className="btn-send"
 				onClick={() => {
-					addComment(newComment);
+					validateComment();
 					setContent("");
-					clearState();
+					clearComment();
 				}}
 			>
 				Send

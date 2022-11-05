@@ -13,6 +13,11 @@
     }
 }
 
+.blank-validation {
+    outline: 2px solid $soft-red;
+    color: $soft-red;
+}
+
 .comment-textarea {
     width: 100%;
     border: 1px solid #E9EBF0;
@@ -26,7 +31,8 @@
     font-size: 1.6rem;
 
     &:focus-visible {
-        outline: 2px solid $moderate-blue;
+        border: 2px solid $moderate-blue;
+        outline: none;
     }
 
     &::-webkit-scrollbar {
@@ -85,6 +91,26 @@
     transition: all 1s ease-in-out;
     border: 1px solid $soft-green;
     color: $soft-green;
+}
+
+.del-confirmation {
+    position: fixed;
+    top: 5rem;
+    background-color: $white;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    padding: 1rem 2.5rem;
+    text-transform: uppercase;
+    transition: all 1s ease-in-out;
+    right: -50%;
+    border: $soft-red solid 1px;
+    color: $soft-red;
+}
+
+.animate-del-confirmation {
+    right: 0%;
+    letter-spacing: .2rem;
+    word-spacing: 1.5rem;
+    padding: 1rem 3rem;
 }
 
 .animate-confirmation {
