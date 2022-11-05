@@ -120,6 +120,7 @@ function App() {
 		}
 
 		setData({ ...temp });
+		setMessage(true);
 	}
 
 	function addRepliesReply(comment, replies, id, newReply) {
@@ -132,6 +133,7 @@ function App() {
 			}
 		}
 		setData({ ...temp });
+		setMessage(true);
 	}
 
 	// Showing confirmation message
