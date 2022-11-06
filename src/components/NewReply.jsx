@@ -41,16 +41,36 @@ export default function NewReply({
 		});
 
 		setContent(e.target.value);
+		setNullStyle(false);
 	}
 
-	console.log(newReply);
-	console.log(replyingToId);
+	const [nullStyle, setNullStyle] = React.useState(false);
+
+	function validateComment() {
+		if (newReply.content) {
+			addReply(replyingToId, newReply);
+			setNullStyle(false);
+		} else {
+			setNullStyle(true);
+		}
+	}
+
+	function clearComment() {
+		setNewReply((prevComment) => {
+			return {
+				...prevComment,
+				content: "",
+				id: "",
+				createdAt: "",
+			};
+		});
+	}
 
 	return (
 		<div className="new-reply new-comment">
 			<img src={avatar} alt="avatar" className="avatar" />
 			<textarea
-				className="comment-textarea"
+				className={`comment-textarea ${nullStyle ? "blank-validation" : null}`}
 				placeholder="Add a comment..."
 				value={content}
 				onChange={handleReply}
@@ -58,7 +78,8 @@ export default function NewReply({
 			<span
 				className="btn-send"
 				onClick={() => {
-					addReply(replyingToId, newReply);
+					validateComment();
+					clearComment();
 					setContent("");
 					setVisibility(false);
 				}}
