@@ -27,9 +27,12 @@ function App() {
 				score={comm.score}
 				haveReplies={comm.replies}
 				currentUser={data.currentUser.username}
+				currentUserData={data.currentUser}
 				deleteComment={() => deleteComment(comm.id)}
 				deleteReply={deleteComment}
 				editComment={editComment}
+				addReply={addReply}
+				data={data}
 			/>
 		);
 	});
@@ -40,13 +43,11 @@ function App() {
 		const temp = data;
 		temp.comments.push(newComment);
 		setData({ ...temp });
-		console.log(newComment.id);
 	}
 
 	// Deleting Comment and Reply
 
 	function deleteComment(id) {
-		console.log(id);
 		const temp = data;
 
 		for (let comment of temp.comments) {
@@ -103,6 +104,19 @@ function App() {
 				editReplies(reply.replies, id, content);
 			}
 		}
+	}
+
+	// Adding New Reply
+	function addReply(id, newReply) {
+		const temp = data;
+
+		for (let comment of temp.comments) {
+			if (comment.id === id) {
+				comment.replies.push(newReply);
+			}
+		}
+
+		setData({ ...temp });
 	}
 
 	return (

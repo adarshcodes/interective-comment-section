@@ -301,4 +301,14 @@ body {
 }
 .btn-send:active {
   transform: scale(0.9);
+}
+
+.new-reply {
+  margin-top: 0;
+}
+
+.replies-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }/*# sourceMappingURL=main.css.map */

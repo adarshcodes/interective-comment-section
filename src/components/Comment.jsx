@@ -3,6 +3,7 @@ import "../assets/sass/main.css";
 import VoteCounter from "./VoteCounter";
 import Replies from "./Replies";
 import Tag from "./Tag";
+import NewReply from "./NewReply";
 
 export default function Comment({
 	id,
@@ -13,9 +14,12 @@ export default function Comment({
 	score,
 	haveReplies,
 	currentUser,
+	currentUserData,
 	deleteComment,
 	deleteReply,
 	editComment,
+	addReply,
+	data,
 }) {
 	const replies = haveReplies.map((rep) => {
 		return (
@@ -28,15 +32,22 @@ export default function Comment({
 				avatar={rep.user.image.webp}
 				repliesContent={rep.content}
 				replyTo={rep.replyingTo}
+				replyToId={rep.id}
 				currentUser={currentUser}
 				deleteReply={() => deleteReply(rep.id)}
 				editReplies={editComment}
+				currentUserData={currentUserData}
+				addReply={addReply}
+				data={data}
 			/>
 		);
 	});
 
 	// Adding Edit State
 	const [edit, setEdit] = React.useState(false);
+
+	// Replies
+	const [reply, setReply] = React.useState(false);
 
 	return (
 		<div className="comment-box">
@@ -72,7 +83,12 @@ export default function Comment({
 								</div>
 							</div>
 						) : (
-							<div className="replyBtn">
+							<div
+								className="replyBtn"
+								onClick={() => {
+									setReply(!reply);
+								}}
+							>
 								<img
 									src={`${process.env.PUBLIC_URL}/images/icon-reply.svg`}
 									alt="reply-icon"
@@ -105,6 +121,17 @@ export default function Comment({
 					</div>
 				</div>
 			</div>
+
+			{reply ? (
+				<NewReply
+					avatar={currentUserData.image.webp}
+					addReply={addReply}
+					data={data}
+					replyingToUser={username}
+					replyingToId={id}
+					setVisibility={setReply}
+				/>
+			) : null}
 
 			{haveReplies.length > 0 ? (
 				<div className="replies-box">{replies}</div>
