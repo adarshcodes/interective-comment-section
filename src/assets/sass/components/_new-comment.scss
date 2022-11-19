@@ -83,7 +83,7 @@
 .confirmation {
     position: fixed;
     top: 5rem;
-    left: -50%;
+    left: -150%;
     background-color: $white;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
     padding: 1rem 2.5rem;
@@ -101,7 +101,7 @@
     padding: 1rem 2.5rem;
     text-transform: uppercase;
     transition: all 1s ease-in-out;
-    right: -50%;
+    right: -150%;
     border: $soft-red solid 1px;
     color: $soft-red;
 }
