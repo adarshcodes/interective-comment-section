@@ -53,9 +53,19 @@ body {
   justify-content: center;
   align-items: center;
 }
+@media screen and (max-width: 770px) {
+  .app {
+    padding: 3rem;
+  }
+}
 
 .app-container {
   width: 73rem;
+}
+@media screen and (max-width: 770px) {
+  .app-container {
+    width: 100%;
+  }
 }
 
 .comment-container {
@@ -177,6 +187,12 @@ body {
   flex-direction: column;
   gap: 2rem;
 }
+@media screen and (max-width: 770px) {
+  .replies-box {
+    margin-left: 2rem;
+    padding-left: 2rem;
+  }
+}
 
 .replying-to {
   color: #5457b6;
@@ -256,6 +272,11 @@ body {
 .new-comment .avatar {
   width: 4rem;
   height: 4rem;
+}
+@media screen and (max-width: 770px) {
+  .new-comment {
+    flex-direction: column;
+  }
 }
 
 .blank-validation {
@@ -357,4 +378,22 @@ body {
   letter-spacing: 0.2rem;
   word-spacing: 1.5rem;
   padding: 1rem 3rem;
+}
+
+.new-comment-mobile {
+  display: none;
+  width: 100%;
+}
+@media screen and (max-width: 770px) {
+  .new-comment-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .desktop-version {
+    display: none;
+  }
 }/*# sourceMappingURL=main.css.map */

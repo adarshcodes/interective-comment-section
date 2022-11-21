@@ -3,10 +3,18 @@
 	height: 100%;
 	padding: 6.4rem;
 	@include flex-row-center;
+
+	@media screen and (max-width: 770px) {
+		padding: 3rem;
+	}
 }
 
 .app-container {
 	width: 73rem;
+
+	@media screen and (max-width: 770px) {
+		width: 100%;
+	}
 }
 
 .comment-container {
@@ -132,6 +140,11 @@
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+
+	@media screen and (max-width: 770px) {
+		margin-left: 2rem;
+		padding-left: 2rem;
+	}
 }
 
 .replying-to {

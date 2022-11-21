@@ -11,6 +11,10 @@
         width: 4rem;
         height: 4rem;
     }
+
+    @media screen and (max-width: 770px) {
+        flex-direction: column;
+    }
 }
 
 .blank-validation {
@@ -119,4 +123,21 @@
     letter-spacing: .2rem;
     word-spacing: 1.5rem;
     padding: 1rem 3rem;
+}
+
+.new-comment-mobile {
+    display: none;
+    width: 100%;
+
+    @media screen and (max-width: 770px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.desktop-version {
+    @media screen and (max-width: 770px) {
+        display: none;
+    }
 }

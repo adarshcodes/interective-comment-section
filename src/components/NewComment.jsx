@@ -59,7 +59,7 @@ export default function NewComment({ avatar, data, addComment }) {
 
 	return (
 		<div className="new-comment">
-			<img src={avatar} alt="avatar" className="avatar" />
+			<img src={avatar} alt="avatar" className="avatar desktop-version" />
 			<textarea
 				className={`comment-textarea ${nullStyle ? "blank-validation" : null}`}
 				placeholder="Add a comment..."
@@ -67,7 +67,7 @@ export default function NewComment({ avatar, data, addComment }) {
 				value={content}
 			></textarea>
 			<span
-				className="btn-send"
+				className="btn-send desktop-version"
 				onClick={() => {
 					validateComment();
 					setContent("");
@@ -76,6 +76,21 @@ export default function NewComment({ avatar, data, addComment }) {
 			>
 				Send
 			</span>
+
+			<div className="new-comment-mobile">
+				<img src={avatar} alt="avatar" className="avatar mobile-version" />
+
+				<span
+					className="btn-send mobile-version"
+					onClick={() => {
+						validateComment();
+						setContent("");
+						clearComment();
+					}}
+				>
+					Send
+				</span>
+			</div>
 		</div>
 	);
 }
