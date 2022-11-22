@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../assets/sass/main.css";
 
-export default function VoteCounter({ score }) {
+export default function VoteCounter({ score, mobileVersion }) {
 	// creating counter state
 	const [votes, setVotes] = useState(score);
 
@@ -20,7 +20,7 @@ export default function VoteCounter({ score }) {
 	}
 
 	return (
-		<div className="vote-counter">
+		<div className={`vote-counter ${mobileVersion}`}>
 			<div
 				className="vote-counter__vote-icon vote-counter__upvote-icon"
 				onClick={upvote}

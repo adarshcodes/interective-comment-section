@@ -11,6 +11,14 @@
 	padding: 1rem 1.5rem;
 	margin-right: 2.4rem;
 
+	@media screen and (max-width: 770px) {
+		flex-direction: row;
+		width: 10rem;
+		height: 4rem;
+		padding: 1.5rem 1rem;
+		display: none;
+	}
+
 	&__vote-icon {
 		position: relative;
 		@include flex-row-center;
@@ -42,5 +50,11 @@
 		font-size: 1.6rem;
 		font-weight: 500;
 		color: $moderate-blue;
+	}
+}
+
+.mobileVersion {
+	@media screen and (max-width: 770px) {
+		display: flex;
 	}
 }

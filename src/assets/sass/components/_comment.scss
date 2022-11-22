@@ -57,6 +57,11 @@
 	padding: 2.4rem;
 	display: flex;
 
+	@media screen and (max-width: 770px) {
+		flex-direction: column;
+		gap: 4rem;
+	}
+
 	.comment-data,
 	.replies-data {
 		width: 100%;
@@ -168,5 +173,15 @@
 	.btn-update {
 		margin-top: 1.6rem;
 		align-self: flex-end;
+	}
+}
+
+.reply-mobile {
+	display: none;
+
+	@media screen and (max-width: 770px) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 }

@@ -34,7 +34,7 @@ export default function Replies({
 						{currentUser === username ? <Tag /> : null}
 						<div className="comment-time">{replyTime}</div>
 						{currentUser === username ? (
-							<div className="edit-and-delete">
+							<div className="edit-and-delete desktop-version">
 								<div className="deleteBtn" onClick={deleteReply}>
 									<img
 										src={`${process.env.PUBLIC_URL}/images/icon-delete.svg`}
@@ -58,7 +58,7 @@ export default function Replies({
 							</div>
 						) : (
 							<div
-								className="replyBtn"
+								className="replyBtn desktop-version"
 								onClick={() => {
 									setReply(!reply);
 								}}
@@ -97,6 +97,48 @@ export default function Replies({
 							</div>
 						)}
 					</div>
+				</div>
+
+				<div className="reply-mobile">
+					<VoteCounter score={repliesScore} mobileVersion={"mobileVersion"} />
+
+					{currentUser === username ? (
+						<div className="edit-and-delete">
+							<div className="deleteBtn" onClick={deleteReply}>
+								<img
+									src={`${process.env.PUBLIC_URL}/images/icon-delete.svg`}
+									alt="delete-icon"
+								/>
+								Delete
+							</div>
+
+							<div
+								className="editBtn"
+								onClick={() => {
+									setEdit(repliesContent);
+								}}
+							>
+								<img
+									src={`${process.env.PUBLIC_URL}/images/icon-edit.svg`}
+									alt="edit-icon"
+								/>
+								Edit
+							</div>
+						</div>
+					) : (
+						<div
+							className="replyBtn "
+							onClick={() => {
+								setReply(!reply);
+							}}
+						>
+							<img
+								src={`${process.env.PUBLIC_URL}/images/icon-reply.svg`}
+								alt="reply-icon"
+							/>
+							Reply
+						</div>
+					)}
 				</div>
 			</div>
 
