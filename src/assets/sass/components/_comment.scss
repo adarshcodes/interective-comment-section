@@ -7,6 +7,10 @@
 	@media screen and (max-width: 770px) {
 		padding: 3rem;
 	}
+
+	@media screen and (max-width: 400px) {
+		padding: 1rem;
+	}
 }
 
 .app-container {
@@ -71,6 +75,7 @@
 			justify-content: flex-start;
 			align-items: center;
 			gap: 1.6rem;
+			flex-wrap: wrap;
 			margin-bottom: 1.5rem;
 		}
 	}

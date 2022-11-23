@@ -95,6 +95,12 @@
     transition: all 1s ease-in-out;
     border: 1px solid $soft-green;
     color: $soft-green;
+
+    @media screen and (max-width: 770px) {
+        padding: 1rem;
+        top: 2rem;
+        font-size: 1.2rem;
+    }
 }
 
 .del-confirmation {
@@ -108,6 +114,12 @@
     right: -150%;
     border: $soft-red solid 1px;
     color: $soft-red;
+
+    @media screen and (max-width: 770px) {
+        padding: 1rem;
+        top: 2rem;
+        font-size: 1.2rem;
+    }
 }
 
 .animate-del-confirmation {
@@ -115,6 +127,11 @@
     letter-spacing: .2rem;
     word-spacing: 1.5rem;
     padding: 1rem 3rem;
+
+    @media screen and (max-width: 770px) {
+        padding: 1rem;
+        word-spacing: normal;
+    }
 }
 
 .animate-confirmation {
@@ -123,6 +140,11 @@
     letter-spacing: .2rem;
     word-spacing: 1.5rem;
     padding: 1rem 3rem;
+
+    @media screen and (max-width: 770px) {
+        padding: 1rem;
+        word-spacing: normal;
+    }
 }
 
 .new-comment-mobile {

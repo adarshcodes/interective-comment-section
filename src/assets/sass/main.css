@@ -58,6 +58,11 @@ body {
     padding: 3rem;
   }
 }
+@media screen and (max-width: 400px) {
+  .app {
+    padding: 1rem;
+  }
+}
 
 .app-container {
   width: 73rem;
@@ -125,6 +130,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   gap: 1.6rem;
+  flex-wrap: wrap;
   margin-bottom: 1.5rem;
 }
 
@@ -385,6 +391,13 @@ body {
   border: 1px solid #09ca7f;
   color: #09ca7f;
 }
+@media screen and (max-width: 770px) {
+  .confirmation {
+    padding: 1rem;
+    top: 2rem;
+    font-size: 1.2rem;
+  }
+}
 
 .del-confirmation {
   position: fixed;
@@ -398,6 +411,13 @@ body {
   border: #ed6468 solid 1px;
   color: #ed6468;
 }
+@media screen and (max-width: 770px) {
+  .del-confirmation {
+    padding: 1rem;
+    top: 2rem;
+    font-size: 1.2rem;
+  }
+}
 
 .animate-del-confirmation {
   right: 0%;
@@ -405,12 +425,24 @@ body {
   word-spacing: 1.5rem;
   padding: 1rem 3rem;
 }
+@media screen and (max-width: 770px) {
+  .animate-del-confirmation {
+    padding: 1rem;
+    word-spacing: normal;
+  }
+}
 
 .animate-confirmation {
   left: 0%;
   letter-spacing: 0.2rem;
   word-spacing: 1.5rem;
   padding: 1rem 3rem;
+}
+@media screen and (max-width: 770px) {
+  .animate-confirmation {
+    padding: 1rem;
+    word-spacing: normal;
+  }
 }
 
 .new-comment-mobile {
