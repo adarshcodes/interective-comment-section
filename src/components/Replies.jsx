@@ -150,6 +150,7 @@ export default function Replies({
 					addReply={addReply}
 					replyingToId={replyToId}
 					replyingToUser={replyTo}
+					setVisibility={setReply}
 				/>
 			) : null}
 		</div>
