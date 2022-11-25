@@ -37,7 +37,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/interective-comment-section-using-react-and-scss-CzQL5SyqIC](https://www.frontendmentor.io/solutions/interective-comment-section-using-react-and-scss-CzQL5SyqIC)
 - Live Site URL: [https://comment-section-xi.vercel.app/](https://comment-section-xi.vercel.app/)
 
 ## My process
